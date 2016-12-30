@@ -41,18 +41,16 @@ html(lang='en')
     // 기존의 Class를 활용하려고 했으나 안 되어서 직접 정의
     style.
         .web-scratch-main {
+            display: inline-flex;
             margin-left: 0px !important;
             width: 100% !important;
-        }
-        #blocklyDiv {
-            position: absolute;
         }
     // Javascript Import 태그들
     // jQuery, Blockly 자체, 그리고 Blockly의 Block들, Blockly의 메세지들 정의
     script(src='https://code.jquery.com/jquery-3.1.1.slim.min.js' integrity='sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=' crossorigin='anonymous')
-    script(src='javascripts/blockly_compressed.js')
-    sciprt(src='javascripts/blocks_compressed.js')
-    sciprt(src='javascripts/msg_en.js')
+    script(src='blockly_compressed.js')
+    sciprt(src='blocks_compressed.js')
+    sciprt(src='msg/msg_en.js')
 
   body
     .demo-layout.mdl-layout.mdl-js-layout.mdl-layout--fixed-drawer.mdl-layout--fixed-header
@@ -67,8 +65,8 @@ html(lang='en')
             li.mdl-menu__item Contact
       main.mdl-layout__content.mdl-color--grey-100.web-scratch-main
           // Blockly Workspace를 붙이기 위한 div들(blocklyArea & blocklyDiv)
-          #blocklyArea
-              #blocklyDiv
+          #blocklyDiv(style={height: '550px', width:'700px'})
+          textarea#codeBox(style={height: '550px', width: '700px'})
       // Toolbox의 구조 정의. Blockly 공식 사이트에 있는 샘플의 XML을 가져왔음
       // 현재는 여기에 blocks_compressed.js를 import해주면 그 안에 있는 기본 블럭들
       // 내용이 들어올 것으로 예상했지만 그 부분이 아직 안 됨
