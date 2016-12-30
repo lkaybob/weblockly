@@ -1,0 +1,153 @@
+doctype html
+//
+  Material Design Lite
+  Copyright 2015 Google Inc. All rights reserved.
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  https://www.apache.org/licenses/LICENSE-2.0
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='description', content='Educational Web Application to Build Web Sites!')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-scale=1.0')
+    title Web From Scratch
+    // Add to homescreen for Chrome on Android
+    meta(name='mobile-web-app-capable', content='yes')
+    link(rel='icon', sizes='192x192', href='images/android-desktop.png')
+    // Add to homescreen for Safari on iOS
+    meta(name='apple-mobile-web-app-capable', content='yes')
+    meta(name='apple-mobile-web-app-status-bar-style', content='black')
+    meta(name='apple-mobile-web-app-title', content='Web From Scratch')
+    link(rel='apple-touch-icon-precomposed', href='images/ios-desktop.png')
+    // Tile icon for Win8 (144x144 + tile color)
+    meta(name='msapplication-TileImage', content='images/touch/ms-touch-icon-144x144-precomposed.png')
+    meta(name='msapplication-TileColor', content='#3372DF')
+    // link(rel='shortcut icon', href='images/favicon.png')
+    // SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones
+    // <link rel="canonical" href="http://www.example.com/">
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&lang=en')
+    link(rel='stylesheet', href='https://code.getmdl.io/1.2.1/material.cyan-light_blue.min.css')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+    // 프로젝트를 위한 CSS (Material Design Lite의 내용도 포함되어 있음)
+    link(rel='stylesheet', href='stylesheets/style.css')
+    // Content Container 위의 제목에 대한 Header Style 정의
+    // 기존의 Class를 활용하려고 했으나 안 되어서 직접 정의
+    style.
+        .web-scratch-main {
+            margin-left: 0px !important;
+            width: 100% !important;
+        }
+        #blocklyDiv {
+            position: absolute;
+        }
+    // Javascript Import 태그들
+    // jQuery, Blockly 자체, 그리고 Blockly의 Block들, Blockly의 메세지들 정의
+    script(src='https://code.jquery.com/jquery-3.1.1.slim.min.js' integrity='sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=' crossorigin='anonymous')
+    script(src='javascripts/blockly_compressed.js')
+    sciprt(src='javascripts/blocks_compressed.js')
+    sciprt(src='javascripts/msg_en.js')
+
+  body
+    .demo-layout.mdl-layout.mdl-js-layout.mdl-layout--fixed-drawer.mdl-layout--fixed-header
+      header.demo-header.mdl-layout__header.mdl-color--grey-100.mdl-color-text--grey-600.web-scratch-main
+        .mdl-layout__header-row
+          span.mdl-layout-title Web From Scratch
+          .mdl-layout-spacer
+          button#hdrbtn.mdl-button.mdl-js-button.mdl-js-ripple-effect.mdl-button--icon
+            i.material-icons more_vert
+          ul.mdl-menu.mdl-js-menu.mdl-js-ripple-effect2.mdl-menu--bottom-right
+            li.mdl-menu__item About
+            li.mdl-menu__item Contact
+      main.mdl-layout__content.mdl-color--grey-100.web-scratch-main
+          // Blockly Workspace를 붙이기 위한 div들(blocklyArea & blocklyDiv)
+          #blocklyArea
+              #blocklyDiv
+      // Toolbox의 구조 정의. Blockly 공식 사이트에 있는 샘플의 XML을 가져왔음
+      // 현재는 여기에 blocks_compressed.js를 import해주면 그 안에 있는 기본 블럭들
+      // 내용이 들어올 것으로 예상했지만 그 부분이 아직 안 됨
+      // TODO : JSON 형식의 정보를 넣어줘야함
+      xml#toolbox
+        category(name='Input')
+            block(type='input_value')
+                value(name='TYPE')
+                shadow(type='type_null')
+            block(type='input_statement')
+                value(name='TYPE')
+                shadow(type='type_null')
+            block(type='input_dummy')
+        category(name='Field')
+            block(type='field_static')
+            block(type='field_input')
+            block(type='field_number')
+            block(type='field_angle')
+            block(type='field_dropdown')
+            block(type='field_checkbox')
+            block(type='field_colour')
+            block(type='field_variable')
+            block(type='field_image')
+        category(name='Type')
+            block(type='type_group')
+            block(type='type_null')
+            block(type='type_boolean')
+            block(type='type_number')
+            block(type='type_string')
+            block(type='type_list')
+            block(type='type_other')
+        category#colourCategory(name='Colour')
+            block(type='colour_hue')
+                mutation(colour='20')
+                field(name='HUE') 20
+            block(type='colour_hue')
+                mutation(colour='65')
+                field(name='HUE') 65
+            block(type='colour_hue')
+                mutation(colour='120')
+                field(name='HUE') 120
+            block(type='colour_hue')
+                mutation(colour='160')
+                field(name='HUE') 160
+            block(type='colour_hue')
+                mutation(colour='210')
+                field(name='HUE') 210
+            block(type='colour_hue')
+                mutation(colour='230')
+                field(name='HUE') 230
+            block(type='colour_hue')
+                mutation(colour='260')
+                field(name='HUE') 260
+            block(type='colour_hue')
+                mutation(colour='290')
+                field(name='HUE') 290
+            block(type='colour_hue')
+                mutation(colour='330')
+                field(name='HUE') 330
+    script(src='https://code.getmdl.io/1.2.1/material.min.js')
+    script.
+        // Resizable Workspace를 Inject하기 위한 Script
+        // resize 이벤트에 맞춰서 해당 Listener가 동작하게 됨
+        // 예제 코드를 우리 테마에 맞춰 일부 수정했음
+        var blocklyArea = document.getElementById('blocklyArea');
+        var blocklyDiv = document.getElementById('blocklyDiv');
+        var workspace = Blockly.inject(blocklyDiv,
+                {toolbox: document.getElementById('toolbox')});
+        var onresize = function (e) {
+            // Compute the absolute coordinates and dimensions of blocklyArea.
+            var element = blocklyArea;
+            var x = 0;
+            var y = 0;
+            // Position blocklyDiv over blocklyArea.
+            blocklyDiv.style.left = x + 'px';
+            blocklyDiv.style.top = y + 'px';
+            blocklyDiv.style.width = blocklyArea.offsetWidth + 'px';
+            blocklyDiv.style.height = blocklyArea.offsetParent.offsetHeight + 'px'; // 원래 offsetParent는 없지만, 이게 있어야 우리 테마에서 제대로 작동하는 것을 확인해서 추가했음.
+        };
+        window.addEventListener('resize', onresize, false);
+        onresize();
+        Blockly.svgResize(workspace);
