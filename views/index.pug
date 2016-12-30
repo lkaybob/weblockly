@@ -48,11 +48,12 @@ html(lang='en')
     // Javascript Import 태그들
     // jQuery, Blockly 자체, 그리고 Blockly의 Block들, Blockly의 메세지들 정의
     script(src='https://code.jquery.com/jquery-3.1.1.slim.min.js' integrity='sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=' crossorigin='anonymous')
-    script(src='blockly_compressed.js')
-    sciprt(src='blocks_compressed.js')
-    sciprt(src='msg/msg_en.js')
+    script(src='blockly/blockly_compressed.js')
+    script(src='blockly/blocks_compressed.js')
+    script(src='blockly/msg/js/en.js')
 
   body
+
     .demo-layout.mdl-layout.mdl-js-layout.mdl-layout--fixed-drawer.mdl-layout--fixed-header
       header.demo-header.mdl-layout__header.mdl-color--grey-100.mdl-color-text--grey-600.web-scratch-main
         .mdl-layout__header-row
@@ -71,7 +72,7 @@ html(lang='en')
       // 현재는 여기에 blocks_compressed.js를 import해주면 그 안에 있는 기본 블럭들
       // 내용이 들어올 것으로 예상했지만 그 부분이 아직 안 됨
       // TODO : JSON 형식의 정보를 넣어줘야함
-      xml#toolbox
+      xml#toolbox(style='display:none')
         category(name='Input')
             block(type='input_value')
                 value(name='TYPE')
@@ -80,6 +81,8 @@ html(lang='en')
                 value(name='TYPE')
                 shadow(type='type_null')
             block(type='input_dummy')
+        category(name='Control')
+            block(type='controls_if')
         category(name='Field')
             block(type='field_static')
             block(type='field_input')
@@ -133,7 +136,7 @@ html(lang='en')
         // 예제 코드를 우리 테마에 맞춰 일부 수정했음
         var blocklyArea = document.getElementById('blocklyArea');
         var blocklyDiv = document.getElementById('blocklyDiv');
-        var workspace = Blockly.inject(blocklyDiv,
+        var workspace = Blockly.inject('blocklyDiv',
                 {toolbox: document.getElementById('toolbox')});
         var onresize = function (e) {
             // Compute the absolute coordinates and dimensions of blocklyArea.
@@ -148,4 +151,6 @@ html(lang='en')
         };
         window.addEventListener('resize', onresize, false);
         onresize();
-        Blockly.svgResize(workspace);
+        Blockly.svgResize(workspace)
+
+    script(src='blockly/blocks_compressed.js')
