@@ -104,30 +104,10 @@ html(lang='en')
             block(type='type_other')
         category(name='HTTP')
             block(type='http_get')
+            block(type='http_res_send')
 
 
     script(src='https://code.getmdl.io/1.2.1/material.min.js')
-    script.
-        // Resizable Workspace를 Inject하기 위한 Script
-        // resize 이벤트에 맞춰서 해당 Listener가 동작하게 됨
-        // 예제 코드를 우리 테마에 맞춰 일부 수정했음
-        var workspace = Blockly.inject('blocklyDiv',
-                {toolbox: document.getElementById('toolbox')
-                });
-        function getCode(){
-            var code = 'var app = require(\'app\')\n' +
-                'var express = require(\'express\')\n\n';
-            code += Blockly.JavaScript.workspaceToCode(workspace);
-            code += '\napp.listen(3000, function () {\n' +
-                'console.log(\'App listening on port 3000!\')\n' +
-                '})\n';
-            return code;
-
-        }
-        window.onload = function (){
-            document.getElementById('codeBox').value = getCode();
-        };
-
-        workspace.addChangeListener(function () {
-            document.getElementById('codeBox').value = getCode();
-        });
+    script(src='javascripts/index.js')
+    script(src='javascripts/custom/blocks/HTTP.js')
+    script(src='javascripts/custom/generators/HTTP.js')

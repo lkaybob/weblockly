@@ -1,4 +1,4 @@
-var blocklyArea = document.getElementById('blocklyArea');
+/*var blocklyArea = document.getElementById('blocklyArea');
 var blocklyDiv = document.getElementById('blocklyDiv');
 var workspace = Blockly.inject(blocklyDiv,
     {toolbox: document.getElementById('toolbox')});
@@ -20,4 +20,25 @@ var onresize = function(e) {
 };
 window.addEventListener('resize', onresize, false);
 onresize();
-Blockly.svgResize(workspace);
+Blockly.svgResize(workspace);*/
+
+var workspace = Blockly.inject('blocklyDiv',
+    {toolbox: document.getElementById('toolbox')
+    });
+function getCode(){
+    var code = 'var app = require(\'app\')\n' +
+        'var express = require(\'express\')\n\n';
+    code += Blockly.JavaScript.workspaceToCode(workspace);
+    code += '\napp.listen(3000, function () {\n' +
+        'console.log(\'App listening on port 3000!\')\n' +
+        '})\n';
+    return code;
+
+}
+window.onload = function (){
+    document.getElementById('codeBox').value = getCode();
+};
+
+workspace.addChangeListener(function () {
+    document.getElementById('codeBox').value = getCode();
+});
