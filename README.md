@@ -1,6 +1,6 @@
-# Web From Scratch
+# Weblockly
 
-### What is "Web From Scratch"?
+### What is "Weblockly"?
 "Web From Scratch" is a [Blockly](https://developers.google.com/blockly) Modification project, which enables students to make actual web site, creating HTML, CSS, Javascript(Using jQuery), so that students can run their Scratch project in web browser (or on a web server!).
 We're planning to implement deployment feature, enalbing their project to be deployed on web server (such as Heroku, Google Cloud Platform, Firebase, but we're deciding which one to choose).
 
