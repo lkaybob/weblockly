@@ -255,3 +255,9 @@ _:-ms-input-placeholder, :root .demo-graph {
 .script-editor {
     margin: 5px;
 }
+
+#rendered {
+    background-color: white;
+    border-color: gainsboro;
+    border-width: 2px;
+}
