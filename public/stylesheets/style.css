@@ -223,3 +223,35 @@ _:-ms-input-placeholder, :root .demo-graph {
     -ms-flex-align: center;
     align-items: center;
 }
+
+/* Editor 관련 Style들 정의 */
+.editor-column {
+    position: absolute;
+    height: 99%;
+    width: 50%;
+}
+
+.column-left {
+    left: 0;
+}
+
+.column-right {
+    right: 0;
+}
+
+.editor-row {
+    height: 50%;
+    width: initial;
+}
+
+.row-top {
+    top: 0;
+}
+
+.row-bottom {
+    bottom: 0;
+}
+
+.script-editor {
+    margin: 5px;
+}
