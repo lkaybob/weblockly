@@ -35,10 +35,21 @@ function getCode(){
     return code;
 
 }
+
 window.onload = function (){
     document.getElementById('codeBox').value = getCode();
 };
 
 workspace.addChangeListener(function () {
     document.getElementById('codeBox').value = getCode();
+});
+
+workspace.addChangeListener(
+function (event){
+    // if (event.type == Blockly.Events.CREATE || event.type == Blockly.Events.CHANGE){
+    if (event.type == Blockly.Events.CHANGE){
+
+        console.log(event.oldValue + ' :: ' + event.newValue);
+    }
+
 });
