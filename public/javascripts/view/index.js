@@ -54,6 +54,14 @@ $('.play-button').click(function () {
     render();
 });
 
+$('#btnGlobal').click(function (){
+    WorkspaceManager.changeToGlobalMode();
+});
+
+$('#btnId').click(function (){
+    WorkspaceManager.changeToIdMode();
+});
+
 
 
 

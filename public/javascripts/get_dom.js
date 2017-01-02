@@ -41,10 +41,13 @@ $(document).ready(function() {
             }
         }
         selectTag.classes = classList;
+        //console.log(selectTag);
 
-        console.log(selectTag);
-
-
+        //alert(selectTag);
+        if (selectTag){
+            WorkspaceManager.saveCurrnetGlobalWorkspace();
+            WorkspaceManager.changeToIdMode(selectTag.id);
+        }
     }
 
     $htmlCode.click(getHTMLTag);
