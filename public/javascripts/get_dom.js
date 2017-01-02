@@ -47,11 +47,13 @@ $(document).ready(function() {
             }
         }
         selectTag.classes = classList;
+        //console.log(selectTag);
 
-        console.log(selectTag);
-
-
+        //alert(selectTag);
+        if (selectTag){
+            WorkspaceManager.saveCurrnetState();
+            WorkspaceManager.changeToIdMode(selectTag.id);
+        }
     }
-
     $htmlCode.click(getHTMLTag);
 });
