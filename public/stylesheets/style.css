@@ -303,4 +303,6 @@ _:-ms-input-placeholder, :root .demo-graph {
     cursor: pointer;
 }
 
-
+.selected-line-number {
+    background-color: red;
+}

@@ -19,6 +19,12 @@ $(document).ready(function() {
             console.log(currentCursorLine + 'fail')
             return null;
         }
+
+        editor.refresh();
+        
+        var linenumberList = $('.column-left .row-top .CodeMirror-linenumber.CodeMirror-gutter-elt');
+        linenumberList[currentCursorLine+1].classList.add('selected-line-number');
+        
         rawStr = match[0] || null;
         selectTag.rawStr = rawStr;
 
