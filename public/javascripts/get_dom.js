@@ -1,4 +1,4 @@
-
+let selectTag = {}
 // textarea for html code
 
 $(document).ready(function() {
@@ -10,7 +10,6 @@ $(document).ready(function() {
 
         var currentCursorLine = editor.getCursor().line;
         var currentLine = editor.getLine(currentCursorLine);
-        var selectTag = {}
 
         var rawStr, match;
         var classList;
