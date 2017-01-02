@@ -22,7 +22,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/blockly',express.static(path.join(__dirname, 'node_modules/blockly')));
-
+app.use('/codemirror', express.static(path.join(__dirname, 'node_modules/codemirror/lib')));
+app.use('/codemirror/addon', express.static(path.join(__dirname, 'node_modules/codemirror/addon/runmode')));
+app.use('/codemirror/mode', express.static(path.join(__dirname, 'node_modules/codemirror/mode')))
 app.use('/', index);
 app.use('/users', users);
 
