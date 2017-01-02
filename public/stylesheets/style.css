@@ -256,3 +256,27 @@ _:-ms-input-placeholder, :root .demo-graph {
     margin: 5px;
 }
 
+.play-button:hover {
+    box-shadow: 0 2px 2px rgba(0,0,0,.2),0 6px 10px rgba(0,0,0,.3);
+    transition: box-shadow .3s ease-in-out;
+}
+
+.play-button {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    border-radius: 100%;
+    color: white;
+    font-size: 2rem;
+    width: 56px;
+    height: 56px;
+    line-height: 56px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.37);
+    transition: box-shadow .3s ease-in-out;
+    text-align: center;
+    font-weight: 500;
+    background-color: #ACEC00;
+    cursor: pointer;
+}
+
+

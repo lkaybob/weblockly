@@ -39,7 +39,6 @@ html(lang='en')
     script(src='blockly/msg/js/en.js')
 
   body
-
     .demo-layout.mdl-layout.mdl-js-layout.mdl-layout--fixed-drawer.mdl-layout--fixed-header
       header.demo-header.mdl-layout__header.mdl-color--grey-100.mdl-color-text--grey-600.web-scratch-main
         .mdl-layout__header-row
@@ -62,7 +61,7 @@ html(lang='en')
               .editor-row.row-bottom
                   // script-editor 클래스를 부여한 것은 크기를 통일하기 위함
                   iframe.script-editor#rendered
-
+                  .play-button ▶
       // Toolbox의 구조 정의. Blockly 공식 사이트에 있는 샘플의 XML을 가져왔음
       // 현재는 여기에 blocks_compressed.js를 import해주면 그 안에 있는 기본 블럭들
       // 내용이 들어올 것으로 예상했지만 그 부분이 아직 안 됨
