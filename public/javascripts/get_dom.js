@@ -14,18 +14,35 @@ $htmlCode.click(function () {
 
     var selectTag = {}
 
-    var rawStr = selectLine.match(/<[^/<]*>/)[0];
-    selectTag.rawStr = rawStr;
-    selectTag.tagName = /<((\w|\d|-)*)/g.exec(rawStr)[1] || null;
-    selectTag.id = /id="([^ "]+)"/g.exec(rawStr)[1] || null;
-    classListStr = /class="([^"]*)"/g.exec(rawStr)[1] || null;
+    var rawStr, match;
     var classList;
-    if (classListStr) {
-       classList = classListStr.split(' '); 
+
+    match = /<[^/<]*>/.exec(selectLine);
+    if (!match) {
+        return null;
+    }
+    rawStr = match[0] || null;
+    selectTag.rawStr = rawStr;
+
+    match = /<((\w|\d|-)*)/g.exec(rawStr);
+    if (match)
+        selectTag.tagName = match[1] || null;
+
+    match = /id="([^ "]+)"/g.exec(rawStr);
+    if (match)
+        selectTag.id = match[1] || null;
+
+    match = /class="([^"]*)"/g.exec(rawStr);
+    if (match) { 
+        classListStr = match[1] || null;
+        if (classListStr) {
+            classList = classListStr.split(' '); 
+        }
+        else {
+            classList = null;
+        }
     }
     selectTag.classes = classList;
-
-   
 
     console.log(selectTag);
 
