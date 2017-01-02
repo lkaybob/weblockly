@@ -2,8 +2,8 @@
 // textarea for html code
 $htmlCode = $('#html');
 
+function getHTMLTag() {
 
-$htmlCode.click(function () {
     var selectPosition =  $htmlCode.prop('selectionStart');
     var rawHtmlCode = $htmlCode.val();
 
@@ -46,4 +46,7 @@ $htmlCode.click(function () {
 
     console.log(selectTag);
 
-});
+
+}
+
+$htmlCode.click(getHTMLTag);
