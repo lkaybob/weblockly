@@ -224,11 +224,25 @@ _:-ms-input-placeholder, :root .demo-graph {
     align-items: center;
 }
 
+/* Content Container 위의 제목에 대한 Header Style 정의 */
+/* 기존의 Class를 활용하려고 했으나 안 되어서 직접 정의 */
+
+.web-scratch-main {
+    display: inline-flex;
+    margin-left: 0px !important;
+    width: 100% !important;
+}
+
+#editorContainer {
+    padding-top: 10px;
+}
+
 /* Editor 관련 Style들 정의 */
 .editor-column {
     position: absolute;
-    height: 99%;
+    height: calc(99% - 10px);
     width: 50%;
+    padding-left: 10px;
 }
 
 .column-left {
@@ -250,10 +264,7 @@ _:-ms-input-placeholder, :root .demo-graph {
 
 .row-bottom {
     bottom: 0;
-}
-
-.script-editor {
-    margin: 5px;
+    margin-top: 5px;
 }
 
 #rendered {
