@@ -23,20 +23,22 @@ html(lang='en')
     link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
     // 프로젝트를 위한 CSS (Material Design Lite의 내용도 포함되어 있음)
     link(rel='stylesheet', href='stylesheets/style.css')
-    // Content Container 위의 제목에 대한 Header Style 정의
-    // 기존의 Class를 활용하려고 했으나 안 되어서 직접 정의
+    link(rel='stylesheet', href='codemirror/codemirror.css')
+
     style.
-        .web-scratch-main {
-            display: inline-flex;
-            margin-left: 0px !important;
-            width: 100% !important;
-        }
+
+
     // Javascript Import 태그들
     // jQuery, Blockly 자체, 그리고 Blockly의 Block들, Blockly의 메세지들 정의
     script(src='https://code.jquery.com/jquery-3.1.1.slim.min.js' integrity='sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=' crossorigin='anonymous')
     script(src='blockly/blockly_compressed.js')
     script(src='blockly/blocks_compressed.js')
     script(src='blockly/msg/js/en.js')
+    script(src='codemirror/codemirror.js')
+    script(src='codemirror/mode/xml/xml.js')
+    script(src='codemirror/mode/htmlmixed/htmlmixed.js')
+    script(src='codemirror/mode/css/css.js')
+    script(src='codemirror/addon/colorize.js')
 
   body
     .demo-layout.mdl-layout.mdl-js-layout.mdl-layout--fixed-drawer.mdl-layout--fixed-header
@@ -49,7 +51,7 @@ html(lang='en')
           ul.mdl-menu.mdl-js-menu.mdl-js-ripple-effect2.mdl-menu--bottom-right
             li.mdl-menu__item About
             li.mdl-menu__item Contact
-      main.mdl-layout__content.mdl-color--grey-100.web-scratch-main
+      main.mdl-layout__content.mdl-color--grey-100.web-scratch-main#editorContainer
           fileldset.editor-column.column-left
               .editor-row.row-top
                   textarea.script-editor#html
@@ -124,6 +126,8 @@ html(lang='en')
                 mutation(colour='330')
                 field(name='HUE') 330
     script(src='https://code.getmdl.io/1.2.1/material.min.js')
+    script.
+
     script(src = 'blockly/blocks_compressed.js')
     script(src='javascripts/view/index.js')
     script(src='javascripts/playground.js')
