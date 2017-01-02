@@ -46,8 +46,13 @@ window.onload = function() {
     editors[1].style.border = borderStyle;
     scriptEditor[1].style.border = borderStyle;
     scriptEditor[3].style.border = borderStyle;
-
+    WorkspaceManager.init();
 };
+
+$('.play-button').click(function () {
+//    alert(Blockly.JavaScript.workspaceToCode(workspace));
+    render();
+});
 
 
 

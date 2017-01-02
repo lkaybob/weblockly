@@ -33,6 +33,7 @@ html(lang='en')
     script(src='https://code.jquery.com/jquery-3.1.1.slim.min.js' integrity='sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=' crossorigin='anonymous')
     script(src='blockly/blockly_compressed.js')
     script(src='blockly/blocks_compressed.js')
+    script(src='blockly/javascript_compressed.js')
     script(src='blockly/msg/js/en.js')
     script(src='codemirror/codemirror.js')
     script(src='codemirror/mode/xml/xml.js')
@@ -46,6 +47,9 @@ html(lang='en')
         .mdl-layout__header-row
           span.mdl-layout-title Weblocky
           .mdl-layout-spacer
+          button#btnGlobal Global
+          button#btnId ID
+          button#btnClass Class
           button#hdrbtn.mdl-button.mdl-js-button.mdl-js-ripple-effect.mdl-button--icon
             i.material-icons more_vert
           ul.mdl-menu.mdl-js-menu.mdl-js-ripple-effect2.mdl-menu--bottom-right
@@ -79,6 +83,8 @@ html(lang='en')
             block(type='input_dummy')
         category(name='Control')
             block(type='controls_if')
+        category(name='Time')
+            block(type='set_time_out')
         category(name='Field')
             block(type='field_static')
             block(type='field_input')
@@ -97,6 +103,8 @@ html(lang='en')
             block(type='type_string')
             block(type='type_list')
             block(type='type_other')
+        category(name='Output')
+            block(type='alert')
         category#colourCategory(name='Colour')
             block(type='colour_hue')
                 mutation(colour='20')
@@ -126,9 +134,9 @@ html(lang='en')
                 mutation(colour='330')
                 field(name='HUE') 330
     script(src='https://code.getmdl.io/1.2.1/material.min.js')
-    script.
-
-    script(src = 'blockly/blocks_compressed.js')
     script(src='javascripts/view/index.js')
     script(src='javascripts/playground.js')
     script(src='javascripts/get_dom.js')
+    script(src='javascripts/workspaceManager.js')
+    script(src='javascripts/Blocks.js')
+    script(src='javascripts/Generators.js')
