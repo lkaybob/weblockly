@@ -1,52 +1,52 @@
 
 // textarea for html code
-$htmlCode = $('#html');
 
-function getHTMLTag() {
+$(document).ready(function() {
 
-    var selectPosition =  $htmlCode.prop('selectionStart');
-    var rawHtmlCode = $htmlCode.val();
+    $htmlCode = $('div.editor-row.row-top');
 
-    var codeEndAtSelectPosition = rawHtmlCode.substring(0,selectPosition);
+    function getHTMLTag() {
+        editor = $('.CodeMirror')[0].CodeMirror;
 
-    var currentFocusLines = codeEndAtSelectPosition.split('\n');
-    var selectLine = rawHtmlCode.split('\n')[currentFocusLines.length - 1];
+        var currentCursorLine = editor.getCursor().line;
+        var currentLine = editor.getLine(currentCursorLine);
+        var selectTag = {}
 
-    var selectTag = {}
+        var rawStr, match;
+        var classList;
 
-    var rawStr, match;
-    var classList;
-
-    match = /<[^/<]*>/.exec(selectLine);
-    if (!match) {
-        return null;
-    }
-    rawStr = match[0] || null;
-    selectTag.rawStr = rawStr;
-
-    match = /<((\w|\d|-)*)/g.exec(rawStr);
-    if (match)
-        selectTag.tagName = match[1] || null;
-
-    match = /id="([^ "]+)"/g.exec(rawStr);
-    if (match)
-        selectTag.id = match[1] || null;
-
-    match = /class="([^"]*)"/g.exec(rawStr);
-    if (match) { 
-        classListStr = match[1] || null;
-        if (classListStr) {
-            classList = classListStr.split(' '); 
+        match = /<[^/<]*>/.exec(currentLine);
+        if (!match) {
+            console.log(currentCursorLine + 'fail')
+            return null;
         }
-        else {
-            classList = null;
+        rawStr = match[0] || null;
+        selectTag.rawStr = rawStr;
+
+        match = /<((\w|\d|-)*)/g.exec(rawStr);
+        if (match)
+            selectTag.tagName = match[1] || null;
+
+        match = /id="([^ "]+)"/g.exec(rawStr);
+        if (match)
+            selectTag.id = match[1] || null;
+
+        match = /class="([^"]*)"/g.exec(rawStr);
+        if (match) { 
+            classListStr = match[1] || null;
+            if (classListStr) {
+                classList = classListStr.split(' '); 
+            }
+            else {
+                classList = null;
+            }
         }
+        selectTag.classes = classList;
+
+        console.log(selectTag);
+
+
     }
-    selectTag.classes = classList;
 
-    console.log(selectTag);
-
-
-}
-
-$htmlCode.click(getHTMLTag);
+    $htmlCode.click(getHTMLTag);
+});
