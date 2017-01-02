@@ -13,7 +13,7 @@ var WorkspaceManager = {
     currentClass : null,
     changeToGlobalMode : function () {
         alert('global');
-        this.saveCurrnetIDWorkspace(this.currentID);
+        this.saveCurrnetState();
         this.currentMode = this.MODE_GLOBAL;
         workspace.clear();
         Blockly.Xml.domToWorkspace(this.globalWorkSpace,workspace);
@@ -32,11 +32,15 @@ var WorkspaceManager = {
         return Blockly.Xml.textToDom('<xml></xml>>');
     }
     ,
-    saveCurrnetGlobalWorkspace : function () {
-        this.globalWorkSpace = Blockly.Xml.workspaceToDom(workspace);
-    },
-    saveCurrnetIDWorkspace : function (id) {
-        this.idWorkspace[id] = Blockly.Xml.workspaceToDom(workspace);
+    saveCurrnetState : function () {
+        switch (this.currentMode){
+            case this.MODE_GLOBAL:
+                this.globalWorkSpace = Blockly.Xml.workspaceToDom(workspace);
+                break;
+            case this.MODE_ID:
+                this.idWorkspace[this.currentID] = Blockly.Xml.workspaceToDom(workspace);
+                break;
+        }
     },
     saveCurrentClassWorkspace: function (className) {
 

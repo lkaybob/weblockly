@@ -45,10 +45,9 @@ $(document).ready(function() {
 
         //alert(selectTag);
         if (selectTag){
-            WorkspaceManager.saveCurrnetGlobalWorkspace();
+            WorkspaceManager.saveCurrnetState();
             WorkspaceManager.changeToIdMode(selectTag.id);
         }
     }
-
     $htmlCode.click(getHTMLTag);
 });
