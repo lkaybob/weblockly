@@ -267,8 +267,3 @@ _:-ms-input-placeholder, :root .demo-graph {
     margin-top: 5px;
 }
 
-#rendered {
-    background-color: white;
-    border-color: gainsboro;
-    border-width: 2px;
-}
