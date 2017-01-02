@@ -105,9 +105,13 @@ html(lang='en')
         category(name='HTTP')
             block(type='http_get')
             block(type='http_res_send')
+        category(name='file')
+            block(type='file_html')
 
 
     script(src='https://code.getmdl.io/1.2.1/material.min.js')
     script(src='javascripts/index.js')
     script(src='javascripts/custom/blocks/HTTP.js')
+    script(src='javascripts/custom/generators/file.js')
+    script(src='javascripts/custom/blocks/file.js')
     script(src='javascripts/custom/generators/HTTP.js')
