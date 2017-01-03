@@ -82,7 +82,7 @@ window.onload = function() {
 
 $('.play-button').click(function () {
 //    alert(Blockly.JavaScript.workspaceToCode(workspace));
-    render();
+    render(true);// render with js
 });
 /*
 $('#btnGlobal').click(function (){
