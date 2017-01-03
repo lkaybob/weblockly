@@ -12,29 +12,32 @@ var WorkspaceManager = {
     currentID : null,
     currentClass : null,
     changeToGlobalMode : function () {
-        alert('global');
-        this.saveCurrnetState();
+        //alert('global');
         this.currentMode = this.MODE_GLOBAL;
+     //   alertModeChange('Global');
+
         workspace.clear();
         Blockly.Xml.domToWorkspace(this.globalWorkSpace,workspace);
-        alertModeChange('Global');
     },
     changeToIdMode : function (id) {
-        alert('id : ' + id );
+        //alert('id : ' + id );
         if (! this.idWorkspace[id])
             this.idWorkspace[id] = this.createNewWorkspace();
-        workspace.clear();
-        Blockly.Xml.domToWorkspace(this.idWorkspace[id],workspace);
         this.currentMode = this.MODE_ID;
         this.currentID = id;
-        alertModeChange('ID : ' + id);
+      //  alertModeChange('ID : ' + id);
+
+        workspace.clear();
+        Blockly.Xml.domToWorkspace(this.idWorkspace[id],workspace);
     },
     createNewWorkspace : function () {
         //console.log('created');
-        return Blockly.Xml.textToDom('<xml></xml>>');
+        return Blockly.Xml.textToDom('<xml></xml>');
+
     }
     ,
     saveCurrnetState : function () {
+        console.log('current state :', this.currentMode);
         switch (this.currentMode){
             case this.MODE_GLOBAL:
                 this.globalWorkSpace = Blockly.Xml.workspaceToDom(workspace);
@@ -47,8 +50,21 @@ var WorkspaceManager = {
     saveCurrentClassWorkspace: function (className) {
 
     },
+    // Constants
     MODE_GLOBAL : 'global',
     MODE_ID : 'id',
     MODE_CLASS : 'class'
 };
-
+//
+// changeMode event handler
+$(document).on('ModeChange', function(event) {
+    console.log(event);
+    if (event.tagId){
+        WorkspaceManager.saveCurrnetState();
+        WorkspaceManager.changeToIdMode(event.tagId);
+    }
+    else {
+        WorkspaceManager.saveCurrnetState();
+        WorkspaceManager.changeToGlobalMode();
+    }
+});

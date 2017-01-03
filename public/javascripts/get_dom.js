@@ -20,7 +20,10 @@ $(document).ready(function() {
         match = /<[^/<]*>/.exec(currentLine);
         if (!match) {
             console.log(currentCursorLine + 'fail');
-            return null;
+            $(document).trigger({
+                type : 'ModeChange'
+            });
+            return;
         }
 
 
@@ -82,9 +85,22 @@ $(document).ready(function() {
 
         //alert(selectTag);
         if (selectTag){
-            WorkspaceManager.saveCurrnetState();
-            WorkspaceManager.changeToIdMode(selectTag.id);
+            // trigger event that change document to id specific mode
+            if (selectTag.id)
+                $(document).trigger({
+                type : 'ModeChange',
+                tagId : selectTag.id
+                });
+            else
+                alert('There is no id in tag you selected.');
+        }
+        else {
+            //trigger event that change document to global mode
+            $(document).trigger({
+                type : 'ModeChange'
+            });
         }
     }
     $htmlCode.click(getHTMLTag);
 });
+

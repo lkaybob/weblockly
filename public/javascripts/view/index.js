@@ -45,8 +45,7 @@ function codeMirrorInit() {
 }
 
 function alertModeChange(a) {
-    var reminder = $('#modeChangeReminder');
-
+    var reminder = $('#modeChangeReminder').text(a).toggle();
     reminder.text(a);
     reminder.toggle();
     setTimeout(function() {
@@ -64,6 +63,8 @@ window.onload = function() {
     editors[1].style.border = borderStyle;
     scriptEditor[1].style.border = borderStyle;
     scriptEditor[3].style.border = borderStyle;
+
+
     WorkspaceManager.init();
 };
 
@@ -71,7 +72,7 @@ $('.play-button').click(function () {
 //    alert(Blockly.JavaScript.workspaceToCode(workspace));
     render();
 });
-
+/*
 $('#btnGlobal').click(function (){
     WorkspaceManager.changeToGlobalMode();
 });
@@ -83,3 +84,4 @@ $('#btnId').click(function (){
 
 
 
+*/
