@@ -39,6 +39,12 @@ function codeMirrorInit() {
         mode: 'text/css',
         lineNumbers: true
     });
+    htmlEditor.on('keyup', function (){
+        render(false);
+    });
+    htmlEditor.on('keyup', function (){
+        render(false);
+    });
 }
 
 var isReminderShow = false;
@@ -82,7 +88,7 @@ window.onload = function() {
 
 $('.play-button').click(function () {
 //    alert(Blockly.JavaScript.workspaceToCode(workspace));
-    render();
+    render(true);// render with js
 });
 /*
 $('#btnGlobal').click(function (){

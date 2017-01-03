@@ -41,7 +41,7 @@ var WorkspaceManager = {
     }
     ,
     saveCurrnetState : function () {
-        console.log('current state :', this.currentMode);
+        //console.log('current state :', this.currentMode);
         switch (this.currentMode){
             case this.MODE_GLOBAL:
                 this.globalWorkSpace = Blockly.Xml.workspaceToDom(workspace);
