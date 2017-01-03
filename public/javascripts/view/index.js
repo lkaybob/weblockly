@@ -44,13 +44,28 @@ function codeMirrorInit() {
     });
 }
 
+var isReminderShow = false;
+var reminderTimer;
 function alertModeChange(a) {
-    var reminder = $('#modeChangeReminder').text(a).toggle();
-    reminder.text(a);
-    reminder.toggle();
-    setTimeout(function() {
-        reminder.fadeOut();
-    }, 1000);
+    var reminder = $('#modeChangeReminder');
+    if (isReminderShow){
+        reminder.text(a);
+        clearTimeout(reminderTimer);
+        reminderTimer = setTimeout(function () {
+            reminder.fadeOut();
+            isReminderShow = false;
+        }, 1000);
+    }
+    else
+    {
+        reminder.text(a);
+        reminder.toggle();
+        isReminderShow = true;
+        reminderTimer = setTimeout(function () {
+            reminder.fadeOut();
+            isReminderShow = false;
+        }, 1000);
+    }
 }
 
 window.addEventListener('resize', onResizeListener, false);

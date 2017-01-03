@@ -12,23 +12,27 @@ var WorkspaceManager = {
     currentID : null,
     currentClass : null,
     changeToGlobalMode : function () {
+
+        alertModeChange('Global');
         //alert('global');
         this.currentMode = this.MODE_GLOBAL;
-     //   alertModeChange('Global');
-
         workspace.clear();
         Blockly.Xml.domToWorkspace(this.globalWorkSpace,workspace);
+
     },
     changeToIdMode : function (id) {
+        alertModeChange('ID : ' + id);
+
         //alert('id : ' + id );
         if (! this.idWorkspace[id])
             this.idWorkspace[id] = this.createNewWorkspace();
         this.currentMode = this.MODE_ID;
         this.currentID = id;
-      //  alertModeChange('ID : ' + id);
 
         workspace.clear();
         Blockly.Xml.domToWorkspace(this.idWorkspace[id],workspace);
+
+
     },
     createNewWorkspace : function () {
         //console.log('created');
