@@ -39,6 +39,12 @@ function codeMirrorInit() {
         mode: 'text/css',
         lineNumbers: true
     });
+    htmlEditor.on('keyup', function (){
+        render(false);
+    });
+    htmlEditor.on('keyup', function (){
+        render(false);
+    });
 }
 
 var isReminderShow = false;

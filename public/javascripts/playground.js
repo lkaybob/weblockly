@@ -1,11 +1,7 @@
 /**
  * Created by credtiger96 on 17. 1. 1.
  */
-// code for rendering iframe
-    //
-    //
 
-    CodeMirror.signal($('#html'),'change')
 // Base template
 var base_tpl =
     "<!doctype html>\n" +
