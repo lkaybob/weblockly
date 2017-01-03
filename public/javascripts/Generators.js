@@ -17,7 +17,7 @@ var generateCode = function () {
         code += '\n';
         workspace.clear();
         Blockly.Xml.domToWorkspace(WorkspaceManager.idWorkspace[id]
-            ,workspace);
+                ,workspace);
         code += Blockly.JavaScript.workspaceToCode(workspace).replace('{{id}}', id);
         code += '\n';
     }
@@ -43,7 +43,7 @@ Blockly.JavaScript['on_click'] = function(block) {
     var statements_code = Blockly.JavaScript.statementToCode(block, 'code');
     // TODO: Assemble JavaScript into code variable.
     var code = 'document.getElementById("{{id}}").onclick = function () {\n' +
-            statements_code + '\n' +
+        statements_code + '\n' +
             '}\n';
     return code;
 };
@@ -56,7 +56,7 @@ Blockly.JavaScript['set_time_out'] = function(block) {
     var statements_code = Blockly.JavaScript.statementToCode(block, 'statement');
     // TODO: Assemble JavaScript into code variable.
     var code = 'setTimeout(function () {\n'+
-            statements_code +
+        statements_code +
             '}, '+ time +');\n';
 
     return code;
@@ -74,13 +74,13 @@ Blockly.JavaScript['alert'] = function(block) {
 
 Blockly.JavaScript['get_dom'] = function(block) {
     var raw_id = block.getFieldValue('ID')
-    var text_id = '$id_' + raw_id;
+        var text_id = '$id_' + raw_id;
     var statements_listener = Blockly.JavaScript.statementToCode(block, 'LISTENER');
     var statements = statements_listener.split('\n');
     statements_listener = '';
     statements.forEach(function (line) {
         line = line.trim()
-        if(line == '') return;
+            if(line == '') return;
         statements_listener += text_id + '.' + line + ';\n'; 
     });
     // TODO: Assemble JavaScript into code variable.
@@ -88,6 +88,20 @@ Blockly.JavaScript['get_dom'] = function(block) {
             raw_id + '\');\n' +
         statements_listener;
     // console.log(code)
+    return code;
+
+};
+
+
+////////////
+//DOM MODIFY
+////////////
+
+
+Blockly.JavaScript['change_inner_text'] = function(block) {
+    var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+    // TODO: Assemble JavaScript into code variable.
+    var code = 'innerHTML = ' + value_name  + ';\n';
     return code;
 
 };

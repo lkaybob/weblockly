@@ -105,3 +105,21 @@ Blockly.Blocks['get_dom'] = {
 
     }
 }
+
+////////////
+//DOM MODIFY
+////////////
+
+Blockly.Blocks['change_inner_text'] = {
+    init: function() {
+        this.appendValueInput("NAME")
+            .setCheck("String")
+            .appendField("change text to");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setTooltip('');
+        this.setHelpUrl('http://www.example.com/');
+
+    }
+
+};
