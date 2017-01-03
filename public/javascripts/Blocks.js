@@ -10,10 +10,10 @@ Blockly.Blocks['on_click'] = {
             "type": "onclick",
             "message0": "When Clicked %1",
             "args0": [
-                {
-                    "type": "input_statement",
-                    "name": "code"
-                }
+            {
+                "type": "input_statement",
+                "name": "code"
+            }
             ],
             "colour": 120,
             "tooltip": "",
@@ -31,16 +31,16 @@ Blockly.Blocks['set_time_out'] = {
             "type": "set_time_out",
             "message0": "SetTimeOut :  %1 %2",
             "args0": [
-                {
-                    "type": "field_number",
-                    "name": "time",
-                    "value": 0,
-                    "min": 0
-                },
-                {
-                    "type": "input_statement",
-                    "name": "statement"
-                }
+            {
+                "type": "field_number",
+                "name": "time",
+                "value": 0,
+                "min": 0
+            },
+            {
+                "type": "input_statement",
+                "name": "statement"
+            }
             ],
             "nextStatement": null,
             "colour": 290,
@@ -59,11 +59,11 @@ Blockly.Blocks['alert'] = {
             "type": "alert",
             "message0": "alert :  %1",
             "args0": [
-                {
-                    "type": "field_input",
-                    "name": "alert_text",
-                    "text": "text"
-                }
+            {
+                "type": "field_input",
+                "name": "alert_text",
+                "text": "text"
+            }
             ],
             "previousStatement": null,
             "nextStatement": null,
@@ -73,3 +73,35 @@ Blockly.Blocks['alert'] = {
         })
     }
 };
+
+/////////
+//GET DOM
+/////////
+Blockly.Blocks['get_dom'] = {
+    init: function () {
+        this.jsonInit({
+            "type": "get_dom_by_id",
+            "message0": "get Element whose id is  %1 %2 Listener for this Dom %3",
+            "args0": [
+            {
+                "type": "field_input",
+                "name": "ID",
+                "text": "custom_div"
+            },
+            {
+                "type" : "input_dummy"
+            },
+            {
+                "type": "input_statement",
+                "name": "LISTENER"
+            }
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+            "colour": 330,
+            "tooltip": "",
+            "helpUrl": "http://www.example.com/"
+        })
+
+    }
+}

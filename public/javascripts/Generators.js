@@ -70,3 +70,27 @@ Blockly.JavaScript['alert'] = function(block) {
     var code = 'alert(\"'+text_alert_text+'\")\n';
     return code;
 };
+
+/////////
+//GET DOM
+/////////
+
+Blockly.JavaScript['get_dom'] = function(block) {
+    var raw_id = block.getFieldValue('ID')
+    var text_id = '$id_' + raw_id;
+    var statements_listener = Blockly.JavaScript.statementToCode(block, 'LISTENER');
+    var statements = statements_listener.split('\n');
+    statements_listener = '';
+    statements.forEach(function (line) {
+        line = line.trim()
+        if(line == '') return;
+        statements_listener += text_id + '.' + line + ';\n'; 
+    });
+    // TODO: Assemble JavaScript into code variable.
+    var code = text_id + ' = document.getElementById(\'' +
+            raw_id + '\');\n' +
+        statements_listener;
+    // console.log(code)
+    return code;
+
+};
