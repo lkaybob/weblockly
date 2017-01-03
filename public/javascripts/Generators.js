@@ -105,3 +105,12 @@ Blockly.JavaScript['change_inner_text'] = function(block) {
     return code;
 
 };
+
+Blockly.JavaScript['change_style'] = function(block) {
+    var dropdown_style = block.getFieldValue('STYLE');
+    var value_style_value = Blockly.JavaScript.valueToCode(block, 'STYLE_VALUE', Blockly.JavaScript.ORDER_ATOMIC);
+    // TODO: Assemble JavaScript into code variable.
+    var code = 'style.' + dropdown_style + ' = '+ value_style_value + ';\n';
+    return code;
+
+};

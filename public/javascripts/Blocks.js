@@ -123,3 +123,19 @@ Blockly.Blocks['change_inner_text'] = {
     }
 
 };
+
+Blockly.Blocks['change_style'] = {
+    init: function() {
+        this.appendValueInput("STYLE_VALUE")
+            .setCheck(null)
+            .appendField("Change Style")
+            .appendField(new Blockly.FieldDropdown([["color", "color"], ["width", "width"], ["height", "height"]]), "STYLE");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(300);
+        this.setTooltip('');
+        this.setHelpUrl('http://www.example.com/');
+
+    }
+
+};
