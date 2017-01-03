@@ -6,10 +6,12 @@ var workspace = Blockly.inject(blocklyDiv,
     {toolbox: document.getElementById('toolbox')});
 var editorRow = (document.getElementsByClassName("editor-row"))[0];
 var scriptEditor = document.getElementsByClassName("script-editor");
+var workspaceTab = document.getElementById('tabGroup');
+var modeChangeReminder = document.getElementById('modeChangeReminder');
 var htmlEditor;
 var cssEditor;
 
-var onResizeListener = function() {
+function onResizeListener() {
     var newHeight = editorRow.clientHeight - 10;
     var newWidth = editorRow.clientWidth - 20;
 
@@ -18,18 +20,19 @@ var onResizeListener = function() {
         scriptEditor[i].style.height = newHeight + 'px';
     }
 
-    var workspaceTab = document.getElementById('tabGroup');
-
     workspaceTab.style.width = newWidth + 'px';
     blocklyDiv.style.height = (newHeight - 20) + 'px';
 
     htmlEditor.setSize(newWidth  + 'px', newHeight + 'px');
     cssEditor.setSize(newWidth + 'px', newHeight + 'px');
 
-    workspace.resizeHandlerWrapper_[0][2]();
-};
+    modeChangeReminder.style.left = (newWidth / 2 - 75) + 'px';
+    modeChangeReminder.style.bottom = (newHeight / 2 - 75) + 'px';
 
-var codeMirrorInit = function() {
+    workspace.resizeHandlerWrapper_[0][2]();
+}
+
+function codeMirrorInit() {
     htmlEditor = CodeMirror.fromTextArea(scriptEditor[0], {
         mode: 'text/html',
         lineNumbers: true,
@@ -39,7 +42,17 @@ var codeMirrorInit = function() {
         mode: 'text/css',
         lineNumbers: true
     });
-};
+}
+
+function alertModeChange(a) {
+    var reminder = $('#modeChangeReminder');
+
+    reminder.text(a);
+    reminder.toggle();
+    setTimeout(function() {
+        reminder.fadeOut();
+    }, 1000);
+}
 
 window.addEventListener('resize', onResizeListener, false);
 window.onload = function() {

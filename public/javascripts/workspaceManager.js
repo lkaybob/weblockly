@@ -17,6 +17,7 @@ var WorkspaceManager = {
         this.currentMode = this.MODE_GLOBAL;
         workspace.clear();
         Blockly.Xml.domToWorkspace(this.globalWorkSpace,workspace);
+        alertModeChange('Global');
     },
     changeToIdMode : function (id) {
         alert('id : ' + id );
@@ -26,6 +27,7 @@ var WorkspaceManager = {
         Blockly.Xml.domToWorkspace(this.idWorkspace[id],workspace);
         this.currentMode = this.MODE_ID;
         this.currentID = id;
+        alertModeChange('ID : ' + id);
     },
     createNewWorkspace : function () {
         //console.log('created');

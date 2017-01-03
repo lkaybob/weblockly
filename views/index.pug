@@ -30,7 +30,7 @@ html(lang='en')
 
     // Javascript Import 태그들
     // jQuery, Blockly 자체, 그리고 Blockly의 Block들, Blockly의 메세지들 정의
-    script(src='https://code.jquery.com/jquery-3.1.1.slim.min.js' integrity='sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=' crossorigin='anonymous')
+    script(src='https://code.jquery.com/jquery-3.1.1.min.js' integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=' crossorigin='anonymous')
     script(src='blockly/blockly_compressed.js')
     script(src='blockly/blocks_compressed.js')
     script(src='blockly/javascript_compressed.js')
@@ -65,6 +65,8 @@ html(lang='en')
                       #JSClass.tab(onclick="") Class
                       #JSId.tab(onclick="") ID
                   .script-editor#blocklyDiv(style="border-width: 1px;")
+                  #modeChangeReminder(style='display: none')
+                      span Global
           fieldset.editor-column.column-right
               .editor-row.row-top
                   textarea.script-editor#css
