@@ -9,17 +9,9 @@ var generateCode = function () {
 
     workspace.clear();
     Blockly.Xml.domToWorkspace(WorkspaceManager.globalWorkSpace,workspace);
+
     var code = Blockly.JavaScript.workspaceToCode(workspace);
-    /*
-    console.log(  WorkspaceManager.idWorkspace);
-    WorkspaceManager.idWorkspace.forEach(function (item, idx){
-        workspace.clear();
-        Blockly.Xml.domToWorkspace(item,workspace);
-        code += '\n';
-        code += Blockly.JavaScript.workspaceToCode(workspace);
-        code += '\n';
-    });
-*/
+
     for (var id in WorkspaceManager.idWorkspace){
 
         code += '\n';
@@ -35,6 +27,11 @@ var generateCode = function () {
     Blockly.Xml.domToWorkspace(tmp,workspace);
 
     console.log(code);
+
+    if (code.includes('{{id}}')){ // if event block exist in global
+        alert('Global Mode does not support event block yet.');
+        return null;
+    }
     return code;
 }
 
