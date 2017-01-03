@@ -1,6 +1,27 @@
 /**
  * Created by credtiger96 on 17. 1. 2.
  */
+////////
+//Event
+////////
+Blockly.Blocks['on_click'] = {
+    init: function () {
+        this.jsonInit({
+            "type": "onclick",
+            "message0": "When Clicked %1",
+            "args0": [
+                {
+                    "type": "input_statement",
+                    "name": "code"
+                }
+            ],
+            "colour": 120,
+            "tooltip": "",
+            "helpUrl": "http://www.example.com/"
+        })
+
+    }
+}
 ///////////
 //TIME
 ///////////

@@ -36,7 +36,7 @@ var base_tpl =
 var prepareSource = function() {
     var html = htmlEditor.getValue(),
         css = cssEditor.getValue(),
-        js = Blockly.JavaScript.workspaceToCode(workspace);
+        js = generateCode();
         src = '';
 
     // HTML
