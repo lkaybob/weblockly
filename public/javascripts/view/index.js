@@ -20,9 +20,6 @@ function onResizeListener() {
         scriptEditor[i].style.height = newHeight + 'px';
     }
 
-    workspaceTab.style.width = newWidth + 'px';
-    blocklyDiv.style.height = (newHeight - 20) + 'px';
-
     htmlEditor.setSize(newWidth  + 'px', newHeight + 'px');
     cssEditor.setSize(newWidth + 'px', newHeight + 'px');
 
