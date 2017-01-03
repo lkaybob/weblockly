@@ -33,11 +33,15 @@ function codeMirrorInit() {
     htmlEditor = CodeMirror.fromTextArea(scriptEditor[0], {
         mode: 'text/html',
         lineNumbers: true,
-        matchBrackets: true
+        matchBrackets: true,
+        extraKeys: {"Shift-Ctrl" : 'autocomplete'},
+        autoCloseTags: true
     });
     cssEditor = CodeMirror.fromTextArea(scriptEditor[2], {
         mode: 'text/css',
-        lineNumbers: true
+        lineNumbers: true,
+        extraKeys: {"Shift-Ctrl" : 'autocomplete'},
+        autoCloseBrackets: false
     });
     htmlEditor.on('keyup', function (){
         render(false);
