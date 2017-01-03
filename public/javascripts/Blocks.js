@@ -93,7 +93,16 @@ Blockly.Blocks['get_dom'] = {
             },
             {
                 "type": "input_statement",
-                "name": "LISTENER"
+                "name": "LISTENER",
+                "check": [
+                    "change_style",
+                    "change_inner_text",
+                    "text",
+                    "colour_picker",
+                    "colour_random",
+                    "colour_rgb",
+                    "colour_blend" 
+                ]
             }
             ],
             "previousStatement": null,
@@ -129,7 +138,7 @@ Blockly.Blocks['change_style'] = {
         this.appendValueInput("STYLE_VALUE")
             .setCheck(null)
             .appendField("Change Style")
-            .appendField(new Blockly.FieldDropdown([["color", "color"], ["width", "width"], ["height", "height"]]), "STYLE");
+            .appendField(new Blockly.FieldDropdown([["color", "color"], ["background color", "backgroundColor"], ["width", "width"], ["height", "height"]]), "STYLE");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(300);

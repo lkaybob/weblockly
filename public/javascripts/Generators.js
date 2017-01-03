@@ -81,7 +81,7 @@ Blockly.JavaScript['get_dom'] = function(block) {
     statements.forEach(function (line) {
         line = line.trim()
             if(line == '') return;
-        statements_listener += text_id + '.' + line + ';\n'; 
+        statements_listener += text_id + '.' + line + '\n'; 
     });
     // TODO: Assemble JavaScript into code variable.
     var code = text_id + ' = document.getElementById(\'' +
