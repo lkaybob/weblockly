@@ -65,7 +65,7 @@ var WorkspaceManager = {
 //
 // changeMode event handler
 $(document).on('ModeChange', function(event) {
-    console.log(event);
+    //console.log(event);
     if (event.tagId){
         WorkspaceManager.saveCurrnetState();
         WorkspaceManager.changeToIdMode(event.tagId);

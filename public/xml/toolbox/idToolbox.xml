@@ -8,17 +8,6 @@
         <block type="on_mouse_out" />
 
     </category>
-    <category name="Input" colour="120">
-        <block type="input_value">
-            <value name="TYPE" />
-            <shadow type="type_null" />
-        </block>
-        <block type="input_statement">
-            <value name="TYPE" />
-            <shadow type="type_null" />
-        </block>
-        <block type="input_dummy" />
-    </category>
     <category name="Logic" colour="210">
         <block type="controls_if" />
     </category>
