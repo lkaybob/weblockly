@@ -18,7 +18,7 @@ var generateCode = function () {
         workspace.clear();
         Blockly.Xml.domToWorkspace(WorkspaceManager.idWorkspace[id]
                 ,workspace);
-        code += Blockly.JavaScript.workspaceToCode(workspace).replace('{{id}}', id);
+        code += Blockly.JavaScript.workspaceToCode(workspace).replace(/{{id}}/gi, id);
         code += '\n';
     }
 
