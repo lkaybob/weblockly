@@ -43,7 +43,7 @@ Weblockly uses following open source software. Each usage can be found in [LICEN
 
 ### Probable Issue
 Since Blockly depends on [closure-library](https://github.com/google/closure-library), you might get a warning like below, when you try out Weblockly.
-![image](/public/images/closure-alert.png)
+![image](https://raw.githubusercontent.com/lawrence-kaybob/weblockly/master/public/images/closure-alert.png)
 If it does, check out the solution [here](https://developers.google.com/blockly/guides/modify/web/closure)
 ### Other References
 * SlideShare (Korean): https://goo.gl/8IDPVN
