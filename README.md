@@ -48,4 +48,4 @@ Since Blockly depends on [closure-library](https://github.com/google/closure-lib
 If it does, check out the solution [here](https://developers.google.com/blockly/guides/modify/web/closure)
 ### Other References
 * SlideShare (Korean): https://goo.gl/8IDPVN
-* YouTube Video : https://youtu.be/bJ4Ie8PGjW4
+* YouTube Video : https://youtu.be/BydwQcDlhu4
