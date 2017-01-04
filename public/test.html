@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!--Material Design Lite
+Copyright 2015 Google Inc. All rights reserved.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+https://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Educational Web Application to Build Web Sites!">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Web From Scratch</title>
+    <!-- Add to homescreen for Chrome on Android-->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+    <!-- Add to homescreen for Safari on iOS-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Web From Scratch">
+    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+    <!-- Tile icon for Win8 (144x144 + tile color)-->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <!-- link(rel='shortcut icon', href='images/favicon.png')-->
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones-->
+    <!--<link rel="canonical" href="http://www.example.com/">-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.cyan-light_blue.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!--프로젝트를 위한 CSS (Material Design Lite의 내용도 포함되어 있음)-->
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <!--Content Container 위의 제목에 대한 Header Style 정의
+기존의 Class를 활용하려고 했으나 안 되어서 직접 정의-->
+    <link rel="stylesheet" type="text/css" href="../node_modules/highlight.js/styles/default.css">
+    <style>
+        .web-scratch-main {
+            margin-left: 0px !important;
+            width: 100% !important;
+        }
+
+        #blocklyDiv {
+            position: absolute;
+        }
+    </style>
+    <!--Javascript Import 태그들
+jQuery, Blockly 자체, 그리고 Blockly의 Block들, Blockly의 메세지들 정의-->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
+    <script src="../node_modules/blockly/blockly_compressed.js"></script>
+    <script src="../node_modules/blockly/blocks_compressed.js"></script>
+    <script src="../node_modules/blockly/javascript_compressed.js"></script>
+    <sciprt src="../node_modules/blockly/msg/msg_en.js"></sciprt>
+</head>
+<body>
+<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+    <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600 web-scratch-main">
+        <div class="mdl-layout__header-row">
+            <span class="mdl-layout-title">Web From Scratch</span>
+            <div class="mdl-layout-spacer"></div>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+                <i class="material-icons">more_vert</i>
+            </button>
+            <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect2 mdl-menu--bottom-right">
+                <li class="mdl-menu__item">About</li>
+                <li class="mdl-menu__item">Contact</li>
+            </ul>
+        </div>
+    </header>
+    <main class="mdl-layout__content mdl-color--grey-100 web-scratch-main" id="content-container">
+        <fieldset class='editor-column column-left '>
+            <div class='editor-row row-top'>
+                <textarea class='script-editor'></textarea>
+            </div>
+            <div class="editor-row row-bottom">
+                <textarea class="script-editor" id="code-blockly"></textarea>
+            </div>
+        </fieldset>
+        <fieldset class='editor-column column-right'>
+            <div class='editor-row row-top'>
+                <textarea class='script-editor'></textarea>
+            </div>
+            <div class="editor-row row-bottom">
+                <div> <!-- 이곳에 Code Renderting을 할 것! --></div>
+            </div>
+        </fieldset>
+    </main>
+</div>
+<script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+<script type="text/javascript">
+    var editorRow = (document.getElementsByClassName("editor-row"))[0];
+    var scriptEditor = document.getElementsByClassName("script-editor");
+    var onResizeListener = function() {
+        var newHeight = editorRow.clientHeight;
+        var newWidth = editorRow.clientWidth;
+
+        for(i = 0; i < 4 && scriptEditor[i] != null; i++) {
+            scriptEditor[i].style.width = (newWidth - 20) + 'px';
+            scriptEditor[i].style.height = (newHeight - 20) + 'px';
+        }
+    }
+    window.addEventListener('resize', onResizeListener, false);
+    onResizeListener();
+
+</script>
+</body>
+</html>
