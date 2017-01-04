@@ -23,12 +23,15 @@ Blockly is an open source project(under Apache License v2.0). By taking advantag
 Weblockly is released under GNU General Public License v3.0. See [LINCESE](https://github.com/lawrence-kaybob/weblockly/blob/master/LICENSE) for more information.
 
 ### Dependencies
-Weblockly uses following open source software. Each usage can be found in [LICENSE](https://github.com/lawrence-kaybob/weblockly/blob/master/LICENSE#L676) 
+Weblockly uses following open source software. Each usage can be found in [LICENSE](https://github.com/lawrence-kaybob/weblockly/blob/master/LICENSE#L676)
+* npm : https://www.npmjs.org
 * Material Design Lite : https://getmdl.io/
 * Blockly : https://developers.google.com/blockly/
 * CodeMirror : https://codemirror.net
 * JSZip : https://stuk.github.io/jszip/
-* 
+
+### Demo
+Try out our project at [here](http://weblockly.lkaybob.pe.kr)!
 
 ### Other References
 * SlideShare (Korean): //To be Added
