@@ -1,0 +1,60 @@
+// Created by lkaybob on 17. 1. 4.
+
+doctype html
+//
+  Material Design Lite
+  Copyright 2015 Google Inc. All rights reserved.
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  https://www.apache.org/licenses/LICENSE-2.0
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name='description', content='Educational Web Application to Build Web Sites!')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-scale=1.0')
+        title WebBlockly
+        link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&lang=en')
+        link(rel='stylesheet', href='https://code.getmdl.io/1.2.1/material.cyan-light_blue.min.css')
+        link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+        // 프로젝트를 위한 CSS (Material Design Lite의 내용도 포함되어 있음)
+        link(rel='stylesheet', href='stylesheets/style.css')
+        link(rel='stylesheet', href='codemirror/codemirror.css')
+
+        script(src='https://code.jquery.com/jquery-3.1.1.min.js' integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=' crossorigin='anonymous')
+        script(src='blockly/blockly_compressed.js')
+        script(src='blockly/javascript_compressed.js')
+        script(src='blockly/msg/js/en.js')
+
+        script(src='codemirror/codemirror.js')
+        script(src='codemirror/addon/edit/closebrackets.js')
+        script(src='codemirror/addon/runmode/colorize.js')
+        script(src='codemirror/mode/javascript/javascript.js')
+
+    body
+        .demo-layout.mdl-layout.mdl-js-layout.mdl-layout--fixed-drawer.mdl-layout--fixed-header
+            header.demo-header.mdl-layout__header.mdl-color--grey-100.mdl-color-text--grey-600.web-scratch-main
+                .mdl-layout__header-row
+                    span.mdl-layout-title Weblockly
+                    .mdl-layout-spacer
+                    button#hdrbtn.mdl-button.mdl-js-button.mdl-js-ripple-effect.mdl-button--icon
+                        i.material-icons more_vert
+                    ul.mdl-menu.mdl-js-menu.mdl-js-ripple-effect2.mdl-menu--bottom-right
+                        li.mdl-menu__item About
+                        li.mdl-menu__item Contact
+            main.mdl-layout__content.mdl-color--grey-100.web-scratch-main#editorContainer
+                fileldset.editor-column.column-left
+                        .script-editor#blocklyDiv(style="border-width: 1px;")
+                fieldset.editor-column.column-right
+                    textarea.script-editor#nodejs
+
+        script(src='https://code.getmdl.io/1.2.1/material.min.js')
+        script(src='javascripts/view/server.js')
+        script(src='javascripts/blockly/blocks/server.js')
+        script(src='javascripts/blockly/generators/server.js')

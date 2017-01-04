@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml id="toolbox" style="display:none">
+    <category name='Input'>
+        <block type='input_value'>
+            <value name='TYPE'/>
+            <shadow type='type_null'/>
+        </block>
+        <block type='input_statement'>
+            <value name='TYPE'/>
+            <shadow type='type_null'/>
+        </block>
+        <block type='input_dummy'>
+        </block>
+    </category>
+    <category name='Control'>
+        <block type='controls_if'>
+        </block>
+    </category>
+    <category name='Field'>
+        <block type='field_static'></block>
+        <block type='field_input'></block>
+        <block type='field_number'></block>
+        <block type='field_angle'></block>
+        <block type='field_dropdown'></block>
+        <block type='field_checkbox'></block>
+        <block type='field_checkbox'></block>
+        <block type='field_variable'></block>
+        <block type='field_image'></block>
+    </category>
+    <category name='Type'>
+        <block type='type_group'></block>
+        <block type='type_null'></block>
+        <block type='type_boolean'></block>
+        <block type='type_number'></block>
+        <block type='type_string'></block>
+        <block type='type_list'></block>
+        <block type='type_other'></block>
+    </category>
+    <category name='HTTP'>
+        <block type='http_get'></block>
+        <block type='http_res_send'></block>
+    </category>
+</xml>
