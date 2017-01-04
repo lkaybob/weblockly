@@ -135,6 +135,10 @@ Blockly.Blocks['alert'] = {
 //GET DOM
 /////////
 Blockly.Blocks['get_dom'] = {
+    /**
+     * get_dom block helps coder to make 'getElementById()' function
+     * this block's inputs are statements that change DOM's css property or innerHTML
+     */
     init: function () {
         this.jsonInit({
             "type": "get_dom_by_id",
@@ -177,6 +181,11 @@ Blockly.Blocks['get_dom'] = {
 ////////////
 
 Blockly.Blocks['change_inner_text'] = {
+    /**
+     * change_inner_text block is statement block for get_dom block
+     * this block helps coder to use 'innerHTML' property of dom object
+     * coder can only modify innerHTML
+     */
     init: function() {
         this.appendValueInput("NAME")
             .setCheck("String")
@@ -191,6 +200,10 @@ Blockly.Blocks['change_inner_text'] = {
 };
 
 Blockly.Blocks['change_style'] = {
+    /**
+     *  change_style block is statement block for get_dom block
+     *  this block helps coder to modify css property of dom object
+     */
     init: function() {
         this.appendValueInput("STYLE_VALUE")
             .setCheck(null)
