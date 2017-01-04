@@ -1,13 +1,13 @@
 /**
 * /public/javascrpts/view/index.js
-* @fileoverview Scripts for frontend code generation demo @ http://localhost:3000
+* @fileoverview Scripts for frontend code generation demo @ http://weblockly.lkaybob.pe.kr
 */
 var blocklyDiv = document.getElementById('blocklyDiv');                 // Defines #blocklyDiv DOM for blockly workspace injection
 var globalToolbox, idToolbox;                                           // XML for blockly workspace toolbox for Global Mode & ID DOM Mode
 
 /**
- * Synchronously calls XML File for toolbox definition
- * Each toolbox definition would be in seperate variable*/
+     * Synchronously calls XML File for toolbox definition
+     * Each toolbox definition would be in seperate variable*/
 $.ajax({
     async : false,
     url : 'xml/toolbox/globalToolbox.xml',
@@ -115,7 +115,8 @@ function alertModeChange(a) {
 }
 
 /**
- * Adds event listener for refreshed DOM size when browser resized*/
+ * Adds event listener for refreshed DOM size when browser resized
+ * */
 window.addEventListener('resize', onResizeListener, false);
 
 window.onload = function() {

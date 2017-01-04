@@ -1,6 +1,9 @@
 // Created by lkaybob on 17. 1. 4.
 
 doctype html
+// *** Modified Material Design Lite's Dashboard Theme ***
+// *** (Got rid of Sidebar component)                  ***
+// *** Material Design Lite is licesed as follows :    ***
 //
   Material Design Lite
   Copyright 2015 Google Inc. All rights reserved.
@@ -20,24 +23,31 @@ html(lang='en')
         meta(name='description', content='Educational Web Application to Build Web Sites!')
         meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-scale=1.0')
         title WebBlockly Serverside Demo
+
+        // Material Design Lite's original dependencies
         link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&lang=en')
         link(rel='stylesheet', href='https://code.getmdl.io/1.2.1/material.cyan-light_blue.min.css')
         link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
-        // 프로젝트를 위한 CSS (Material Design Lite의 내용도 포함되어 있음)
+
+        // CSS Styling rule written by our team
         link(rel='stylesheet', href='stylesheets/style.css')
         link(rel='stylesheet', href='codemirror/codemirror.css')
 
+        // Our code's dependency on jQuery library
         script(src='https://code.jquery.com/jquery-3.1.1.min.js' integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=' crossorigin='anonymous')
+
+        // Blockly's original dependencies
         script(src='blockly/blockly_compressed.js')
         script(src='blockly/blocks_compressed.js')
         script(src='blockly/javascript_compressed.js')
         script(src='blockly/msg/js/en.js')
 
+        // CodeMirror's Original dependencies
+        // (for Javascript  Syntax Highlighting
         script(src='codemirror/codemirror.js')
         script(src='codemirror/addon/edit/closebrackets.js')
         script(src='codemirror/addon/runmode/colorize.js')
         script(src='codemirror/mode/javascript/javascript.js')
-
     body
         .demo-layout.mdl-layout.mdl-js-layout.mdl-layout--fixed-drawer.mdl-layout--fixed-header
             header.demo-header.mdl-layout__header.mdl-color--grey-100.mdl-color-text--grey-600.web-scratch-main
@@ -57,7 +67,12 @@ html(lang='en')
                 fieldset.editor-column.column-right
                     textarea.script-editor#nodejs
 
+        // Material Design Lite's original dependency
         script(src='https://code.getmdl.io/1.2.1/material.min.js')
+
+        // Weblockly's dependenies
+        // These scripts are written by our team
         script(src='javascripts/view/server.js')
         script(src='javascripts/blockly/blocks/server.js')
         script(src='javascripts/blockly/generators/server.js')
+
