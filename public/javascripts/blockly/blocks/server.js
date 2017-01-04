@@ -5,7 +5,7 @@ Blockly.Blocks['http_get'] = {
     'init' : function () {
         this.jsonInit({
             "type": "http_get",
-            "message0": "GET url :  %1 %2",
+            "message0": "GET Request at %1 %2",
             "args0": [
                 {
                     "type": "field_input",
@@ -28,7 +28,7 @@ Blockly.Blocks['http_res_send'] = {
     'init' : function (){
         this.jsonInit({
             "type": "http_res_send",
-            "message0": "Send %1",
+            "message0": "Send File %1",
             "args0": [
                 {
                     "type": "input_value",

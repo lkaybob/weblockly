@@ -22,13 +22,12 @@ var nodeEditor;
 
 function onResizeListener() {
     var newHeight = editorColumn.clientHeight - 10;
-    var newWidth = editorColumn.clientWidth - 20;
+    var newWidth = editorColumn.clientWidth - 30;
 
-    for(var i = 0; i < 2; i++) {
-        scriptEditor[i].style.width = newWidth + 'px';
-        scriptEditor[i].style.height = newHeight + 'px';
-    }
+    nodeEditor.setSize(newWidth + 'px', newHeight + 'px');
 
+    scriptEditor[0].style.width = newWidth + 'px';
+    scriptEditor[0].style.height = newHeight + 'px';
     workspace.resizeHandlerWrapper_[0][2]();
 }
 
@@ -41,16 +40,27 @@ function codeMirrorInit() {
 }
 
 function renderJSCode() {
+    var headerCode
+    = 'var app = require(\'app\');\n\n';
+    var traierCode
+    = '\napp.listen(3000, function () {\n'
+    + 'console.log(\'App listening on port 3000!\\n\');\n'
+    + '});\n'
     var code = Blockly.JavaScript.workspaceToCode(workspace);
+
+    code = headerCode + code + traierCode;
     nodeEditor.setValue(code);
 }
 
 window.addEventListener('resize', onResizeListener);
 window.onload = function () {
     var borderStyle = '1px solid black';
+    var editor = document.getElementsByClassName('CodeMirror');
     codeMirrorInit();
     onResizeListener();
-    for(var i = 0; i < scriptEditor.length; i++)
-        scriptEditor[i].style.border = borderStyle;
+
+    scriptEditor[0].style.border = borderStyle;
+    editor[0].style.border = borderStyle;
     workspace.addChangeListener(renderJSCode);
+    renderJSCode();
 };

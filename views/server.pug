@@ -19,7 +19,7 @@ html(lang='en')
         meta(http-equiv='X-UA-Compatible', content='IE=edge')
         meta(name='description', content='Educational Web Application to Build Web Sites!')
         meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-scale=1.0')
-        title WebBlockly
+        title WebBlockly Serverside Demo
         link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&lang=en')
         link(rel='stylesheet', href='https://code.getmdl.io/1.2.1/material.cyan-light_blue.min.css')
         link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
@@ -29,6 +29,7 @@ html(lang='en')
 
         script(src='https://code.jquery.com/jquery-3.1.1.min.js' integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=' crossorigin='anonymous')
         script(src='blockly/blockly_compressed.js')
+        script(src='blockly/blocks_compressed.js')
         script(src='blockly/javascript_compressed.js')
         script(src='blockly/msg/js/en.js')
 
@@ -41,8 +42,10 @@ html(lang='en')
         .demo-layout.mdl-layout.mdl-js-layout.mdl-layout--fixed-drawer.mdl-layout--fixed-header
             header.demo-header.mdl-layout__header.mdl-color--grey-100.mdl-color-text--grey-600.web-scratch-main
                 .mdl-layout__header-row
-                    span.mdl-layout-title Weblockly
+                    span.mdl-layout-title Weblockly Serverside Demo
                     .mdl-layout-spacer
+                    a(href='/')
+                        button.mdl-button.mdl-js-button.mdl-button--raised Frontend Demo
                     button#hdrbtn.mdl-button.mdl-js-button.mdl-js-ripple-effect.mdl-button--icon
                         i.material-icons more_vert
                     ul.mdl-menu.mdl-js-menu.mdl-js-ripple-effect2.mdl-menu--bottom-right
