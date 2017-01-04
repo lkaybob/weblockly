@@ -673,14 +673,17 @@ the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
 <http://www.gnu.org/philosophy/why-not-lgpl.html>.
 
-The Weblockly license applies to all parts of Node.js that are not externally
+Weblockly license applies to all parts of Weblockly that are not externally
 maintained libraries.
 
-The externally maintained libraries used by Node.js are:
+The externally maintained libraries used by Weblockly are:
 
 - Blockly, located at /node_modules/blockly is licensed as follows:
 ```
-Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 3.0 License, and code samples are licensed under the Apache 2.0 License. For details, see our Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Except as otherwise noted, the content of this page is licensed under the Creative
+Commons Attribution 3.0 License, and code samples are licensed under the Apache
+2.0 License. For details, see our Site Policies. Java is a registered trademark of
+Oracle and/or its affiliates.
 ```
 
 - JSZip, localted at /node_modules/jszip is licensed as follows:

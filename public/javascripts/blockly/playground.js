@@ -2,7 +2,7 @@
  * Created by credtiger96 on 17. 1. 1.
  */
 
-// Base template
+// Base template to be injected to iframe
 var base_tpl =
     "<!doctype html>\n" +
     "<html>\n\t" +
@@ -15,12 +15,16 @@ var base_tpl =
     "</html>";
 var jsCodeCache = '';
 
+/*
+if js is true, generate js code from workspace
+else take jsCodeCache.
+*/
 var prepareSource = function(js) {
     var html = htmlEditor.getValue(),
         css = cssEditor.getValue(),
         javascript;
     if (js) {
-        jsCodeCache = generateCode();
+        jsCodeCache = generateCode(); // Generator.js 
     }
     javascript = jsCodeCache;
     src = '';

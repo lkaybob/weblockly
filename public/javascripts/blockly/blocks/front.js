@@ -86,7 +86,7 @@ Blockly.Blocks['set_time_out'] = {
     init : function () {
         this.jsonInit({
             "type": "set_time_out",
-            "message0": "SetTimeOut :  %1 %2",
+            "message0": "SetTimeOut :  %1 %2 (ms)",
             "args0": [
             {
                 "type": "field_number",
@@ -99,6 +99,7 @@ Blockly.Blocks['set_time_out'] = {
                 "name": "statement"
             }
             ],
+            "previousStatement": null,
             "nextStatement": null,
             "colour": 290,
             "tooltip": "",
@@ -107,6 +108,31 @@ Blockly.Blocks['set_time_out'] = {
     }
 }
 
+Blockly.Blocks['set_interval'] = {
+    init : function () {
+        this.jsonInit({
+            "type": "set_interval",
+            "message0": "Time Interval :  %1 %2 (ms)",
+            "args0": [
+                {
+                    "type": "field_number",
+                    "name": "time",
+                    "value": 0,
+                    "min": 0
+                },
+                {
+                    "type": "input_statement",
+                    "name": "statement"
+                }
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+            "colour": 290,
+            "tooltip": "",
+            "helpUrl": "http://www.example.com/"
+        })
+    }
+}
 ////////
 //OUTPUT
 ////////
@@ -135,6 +161,10 @@ Blockly.Blocks['alert'] = {
 //GET DOM
 /////////
 Blockly.Blocks['get_dom'] = {
+    /**
+     * get_dom block helps coder to make 'getElementById()' function
+     * this block's inputs are statements that change DOM's css property or innerHTML
+     */
     init: function () {
         this.jsonInit({
             "type": "get_dom_by_id",
@@ -177,6 +207,11 @@ Blockly.Blocks['get_dom'] = {
 ////////////
 
 Blockly.Blocks['change_inner_text'] = {
+    /**
+     * change_inner_text block is statement block for get_dom block
+     * this block helps coder to use 'innerHTML' property of dom object
+     * coder can only modify innerHTML
+     */
     init: function() {
         this.appendValueInput("NAME")
             .setCheck("String")
@@ -191,6 +226,10 @@ Blockly.Blocks['change_inner_text'] = {
 };
 
 Blockly.Blocks['change_style'] = {
+    /**
+     *  change_style block is statement block for get_dom block
+     *  this block helps coder to modify css property of dom object
+     */
     init: function() {
         this.appendValueInput("STYLE_VALUE")
             .setCheck(null)

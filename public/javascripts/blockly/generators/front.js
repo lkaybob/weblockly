@@ -1,6 +1,9 @@
 /**
  * Created by credtiger96 on 17. 1. 2.
  */
+/*
+* generate javascript code from all of workspace in WorkspaceManager. 
+*/
 var generateCode = function () {
     WorkspaceManager.saveCurrnetState();
 
@@ -18,7 +21,7 @@ var generateCode = function () {
         workspace.clear();
         Blockly.Xml.domToWorkspace(WorkspaceManager.idWorkspace[id]
                 ,workspace);
-        code += Blockly.JavaScript.workspaceToCode(workspace).replace('{{id}}', id);
+        code += Blockly.JavaScript.workspaceToCode(workspace).replace(/{{id}}/gi, id);
         code += '\n';
     }
 
@@ -26,12 +29,14 @@ var generateCode = function () {
     workspace.clear();
     Blockly.Xml.domToWorkspace(tmp,workspace);
 
-    console.log(code);
+    //console.log(code);
 
-    if (code.includes('{{id}}')){ // if event block exist in global
+    if (code.includes('{{id}}')){ // if event block that requires ID exists in global workspace. 
         alert('Global Mode does not support event block yet.');
         return null;
     }
+
+    console.log(code);
     return code;
 }
 
@@ -76,7 +81,7 @@ Blockly.JavaScript['on_mouse_out'] = function(block) {
 
 /////////
 //time
-/////
+/////////
 Blockly.JavaScript['set_time_out'] = function(block) {
     var time = block.getFieldValue('time');
     var statements_code = Blockly.JavaScript.statementToCode(block, 'statement');
@@ -87,6 +92,20 @@ Blockly.JavaScript['set_time_out'] = function(block) {
 
     return code;
 };
+
+Blockly.JavaScript['set_interval'] = function(block) {
+    var time = block.getFieldValue('time');
+    var statements_code = Blockly.JavaScript.statementToCode(block, 'statement');
+    // TODO: Assemble JavaScript into code variable.
+    var code = 'setInterval(function () {\n'+
+        statements_code +
+        '}, '+ time +');\n';
+
+    return code;
+};
+////////
+// output
+////////
 Blockly.JavaScript['alert'] = function(block) {
     var text_alert_text = block.getFieldValue('alert_text');
     // TODO: Assemble JavaScript into code variable.
@@ -99,6 +118,14 @@ Blockly.JavaScript['alert'] = function(block) {
 /////////
 
 Blockly.JavaScript['get_dom'] = function(block) {
+    /**
+     * code generating of get_dom block
+     * get dom's id by filed input
+     * get all statement codes and split code line by line
+     *
+     * save return value of getElementById into variable
+     * ''concat' all statement's code to variable that has dom object by joining with dot (.)
+     */
     var raw_id = block.getFieldValue('ID')
         var text_id = '$id_' + raw_id;
     var statements_listener = Blockly.JavaScript.statementToCode(block, 'LISTENER');
@@ -125,6 +152,12 @@ Blockly.JavaScript['get_dom'] = function(block) {
 
 
 Blockly.JavaScript['change_inner_text'] = function(block) {
+    /**
+     * code generating of change_inner_text block
+     * 
+     * change innerHTML to coder's input value
+     *
+     * */
     var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.
     var code = 'innerHTML = ' + value_name  + ';\n';
@@ -133,6 +166,14 @@ Blockly.JavaScript['change_inner_text'] = function(block) {
 };
 
 Blockly.JavaScript['change_style'] = function(block) {
+    /**
+     * code generating of change_style block
+     *
+     * get style property by dropdown value
+     * get value of style property by coder's input value
+     *
+     * combination all value to make : dom.style.property = new value
+     * */
     var dropdown_style = block.getFieldValue('STYLE');
     var value_style_value = Blockly.JavaScript.valueToCode(block, 'STYLE_VALUE', Blockly.JavaScript.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.

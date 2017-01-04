@@ -1,7 +1,13 @@
 /**
  * Created by lkaybob on 17. 1. 4.
+ * /public/javascripts/blocks/server.js
+ * @fileOverview Scripts for defining blocks
  */
 Blockly.Blocks['http_get'] = {
+    /**
+     * Defines app.get() method in Node.js server app
+     * with Block's value and which argument this block gets
+     * */
     'init' : function () {
         this.jsonInit({
             "type": "http_get",
@@ -25,6 +31,9 @@ Blockly.Blocks['http_get'] = {
 };
 
 Blockly.Blocks['http_res_send'] = {
+    /**
+     * Defines a block to render a file and send when request income
+     * */
     'init' : function (){
         this.jsonInit({
             "type": "http_res_send",
