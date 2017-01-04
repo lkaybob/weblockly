@@ -19,7 +19,6 @@ $(document).ready(function() {
 
         match = /<[^/<]*>/.exec(currentLine);
         if (!match) {
-            //console.log(currentCursorLine + 'fail');
             $(document).trigger({
                 type : 'ModeChange'
             });
@@ -39,7 +38,7 @@ $(document).ready(function() {
         else
             selectTag.tagName = null;
 
-        match = /(id="([^ "']+)")|(id='([^ "']+)')/g.exec(rawStr);
+        match = /(id\s*=\s*"([^ "']+)")|(id\s*=\s*'([^ "']+)')/g.exec(rawStr);
         if (match){
             if (match[2]) { 
                 selectTag.id = match[2] || null;
@@ -48,7 +47,6 @@ $(document).ready(function() {
                 selectTag.id = match[4] || null;
             }
             else {
-                console.log(match);
                 alert(match)
 
             }
@@ -56,7 +54,7 @@ $(document).ready(function() {
         else
             selectTag.id = null;
 
-        match = /class=("([^"']*)")|('([^"']*)')/g.exec(rawStr);
+        match = /class\s*=\s*("([^"']*)")|('([^"']*)')/g.exec(rawStr);
         if (match) { 
             if (match[2]) { 
                 classListStr = match[2] || null;
@@ -65,7 +63,6 @@ $(document).ready(function() {
                 classListStr = match[4] || null;
             }
             else {
-                console.log(match);
                 alert(match)
 
             }
@@ -81,7 +78,6 @@ $(document).ready(function() {
             classList = null;
         }
         selectTag.classes = classList;
-        //console.log(selectTag);
 
         //alert(selectTag);
         if (selectTag){
