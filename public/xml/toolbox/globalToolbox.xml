@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml id="toolbox" style="display:none">
+    <category name="Global"></category>
+    <sep></sep>
+    <category name="Event" colour="230">
+        <block type="on_click" />
+    </category>
+    <category name="Input" colour="120">
+        <block type="input_value">
+            <value name="TYPE" />
+            <shadow type="type_null" />
+        </block>
+        <block type="input_statement">
+            <value name="TYPE" />
+            <shadow type="type_null" />
+        </block>
+        <block type="input_dummy" />
+    </category>
+    <category name="Logic" colour="210">
+        <block type="controls_if" />
+    </category>
+    <category name="Loops" colour="160">
+        <block type="controls_repeat_ext" />
+        <block type="controls_repeat" />
+        <block type="controls_whileUntil" />
+    </category>
+    <category name="Time" colour="260">
+        <block type="set_time_out" />
+    </category>
+    <category name="Math" colour="290">
+        <block type="math_number" />
+        <block type="math_arithmetic" />
+        <block type="math_single" />
+        <block type="math_trig" />
+        <block type="math_constant" />
+        <block type="math_number_property" />
+        <block type="math_change" />
+        <block type="math_round" />
+        <block type="math_on_list" />
+        <block type="math_modulo" />
+        <block type="math_constrain" />
+        <block type="math_random_int" />
+        <block type="math_random_float" />
+    </category>
+    <category name="Output" colour="200">
+        <block type="alert" />
+    </category>
+    <category id="catColour" colour="20" name="Color">
+        <block type="colour_picker" />
+        <block type="colour_random" />
+        <block type="colour_rgb">
+            <value name="RED">
+                <shadow type="math_number">
+                    <field name="NUM">100</field>
+                </shadow>
+            </value>
+            <value name="GREEN">
+                <shadow type="math_number">
+                    <field name="NUM">50</field>
+                </shadow>
+            </value>
+            <value name="BLUE">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="colour_blend">
+            <value name="COLOUR1">
+                <shadow type="colour_picker">
+                    <field name="COLOUR">#ff0000</field>
+                </shadow>
+            </value>
+            <value name="COLOUR2">
+                <shadow type="colour_picker">
+                    <field name="COLOUR">#3333ff</field>
+                </shadow>
+            </value>
+            <value name="RATIO">
+                <shadow type="math_number">
+                    <field name="NUM">0.5</field>
+                </shadow>
+            </value>
+        </block>
+    </category>
+    <category name="GET_DOM">
+        <block type="get_dom" />
+    </category>
+    <category name="MODIFY_DOM">
+        <block type="change_inner_text" />
+        <block type="change_style" />
+        <block type="text" />
+    </category>
+    <sep />
+    <category name="Variable" colour="330">
+        <block type="variables_get" />
+        <block type="variables_set" />
+    </category>
+    <category name="Lists" colour="260">
+        <block type="lists_create_with">
+            <mutation items="0" />
+        </block>
+        <block type="lists_create_with" />
+        <block type="lists_repeat">
+            <value name="NUM">
+                <shadow type="math_number">
+                    <field name="NUM">5</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="lists_length" />
+        <block type="lists_isEmpty" />
+        <block type="lists_indexOf">
+            <value name="VALUE">
+                <block type="variables_get">
+                    <field name="VAR">list</field>
+                </block>
+            </value>
+        </block>
+        <block type="lists_getIndex">
+            <value name="VALUE">
+                <block type="variables_get">
+                    <field name="VAR">list</field>
+                </block>
+            </value>
+        </block>
+        <block type="lists_setIndex">
+            <value name="LIST">
+                <block type="variables_get">
+                    <field name="VAR">list</field>
+                </block>
+            </value>
+        </block>
+        <block type="lists_getSublist">
+            <value name="LIST">
+                <block type="variables_get">
+                    <field name="VAR">list</field>
+                </block>
+            </value>
+        </block>
+        <block type="lists_split">
+            <value name="DELIM">
+                <shadow type="text">
+                    <field name="TEXT">,</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="lists_sort" />
+    </category>
+    <category name="Functions" custom="PROCEDURE" colour="290" />
+</xml>

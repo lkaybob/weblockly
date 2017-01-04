@@ -19,6 +19,7 @@ var WorkspaceManager = {
         workspace.clear();
         Blockly.Xml.domToWorkspace(this.globalWorkSpace,workspace);
 
+        workspace.updateToolbox(globalToolbox);
     },
     changeToIdMode : function (id) {
         alertModeChange('ID : ' + id);
@@ -32,6 +33,7 @@ var WorkspaceManager = {
         workspace.clear();
         Blockly.Xml.domToWorkspace(this.idWorkspace[id],workspace);
 
+        workspace.updateToolbox(idToolbox);
 
     },
     createNewWorkspace : function () {

@@ -2,8 +2,30 @@
 // resizeable
 /////////////////////////
 var blocklyDiv = document.getElementById('blocklyDiv');
+
+var globalToolbox, idToolbox;
+
+$.ajax({
+    async : false,
+    url : 'xml/toolbox/globalToolbox.xml',
+    dataType : 'xml',
+    success : function (xml) {
+        var toolbox = (new XMLSerializer()).serializeToString(xml);
+        globalToolbox = toolbox;
+    }
+});
+$.ajax({
+    url : 'xml/toolbox/idToolbox.xml',
+    dataType : 'xml',
+    success : function (xml) {
+        var toolbox = (new XMLSerializer()).serializeToString(xml);
+        idToolbox = toolbox;
+    }
+});
+
 var workspace = Blockly.inject(blocklyDiv,
-    {toolbox: document.getElementById('toolbox')});
+    {toolbox: globalToolbox});
+
 var editorRow = (document.getElementsByClassName("editor-row"))[0];
 var scriptEditor = document.getElementsByClassName("script-editor");
 var workspaceTab = document.getElementById('tabGroup');
