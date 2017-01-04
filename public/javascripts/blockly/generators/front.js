@@ -1,6 +1,9 @@
 /**
  * Created by credtiger96 on 17. 1. 2.
  */
+/*
+* generate javascript code from all of workspace in WorkspaceManager. 
+*/
 var generateCode = function () {
     WorkspaceManager.saveCurrnetState();
 
@@ -26,12 +29,13 @@ var generateCode = function () {
     workspace.clear();
     Blockly.Xml.domToWorkspace(tmp,workspace);
 
-    console.log(code);
+    //console.log(code);
 
-    if (code.includes('{{id}}')){ // if event block exist in global
+    if (code.includes('{{id}}')){ // if event block that requires ID exists in global workspace. 
         alert('Global Mode does not support event block yet.');
         return null;
     }
+    
     return code;
 }
 
@@ -76,7 +80,7 @@ Blockly.JavaScript['on_mouse_out'] = function(block) {
 
 /////////
 //time
-/////
+/////////
 Blockly.JavaScript['set_time_out'] = function(block) {
     var time = block.getFieldValue('time');
     var statements_code = Blockly.JavaScript.statementToCode(block, 'statement');
