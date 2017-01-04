@@ -44,7 +44,33 @@ Blockly.JavaScript['on_click'] = function(block) {
     // TODO: Assemble JavaScript into code variable.
     var code = 'document.getElementById("{{id}}").onclick = function () {\n' +
         statements_code + '\n' +
-            '}\n';
+        '}\n';
+    return code;
+};
+
+Blockly.JavaScript['on_load'] = function(block) {
+    var statements_code = Blockly.JavaScript.statementToCode(block, 'code');
+    // TODO: Assemble JavaScript into code variable.
+    var code = 'window.onload = function () {\n' +
+        statements_code + '\n' +
+        '}\n';
+    return code;
+};
+Blockly.JavaScript['on_mouse_over'] = function(block) {
+    var statements_code = Blockly.JavaScript.statementToCode(block, 'code');
+    // TODO: Assemble JavaScript into code variable.
+    var code = 'document.getElementById("{{id}}").onmouseover = function () {\n' +
+        statements_code + '\n' +
+        '}\n';
+    return code;
+};
+
+Blockly.JavaScript['on_mouse_out'] = function(block) {
+    var statements_code = Blockly.JavaScript.statementToCode(block, 'code');
+    // TODO: Assemble JavaScript into code variable.
+    var code = 'document.getElementById("{{id}}").onmouseout = function () {\n' +
+        statements_code + '\n' +
+        '}\n';
     return code;
 };
 

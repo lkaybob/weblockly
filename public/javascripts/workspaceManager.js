@@ -14,15 +14,18 @@ var WorkspaceManager = {
     changeToGlobalMode : function () {
 
         alertModeChange('Global');
+
+        workspace.updateToolbox(globalToolbox);
         //alert('global');
         this.currentMode = this.MODE_GLOBAL;
         workspace.clear();
         Blockly.Xml.domToWorkspace(this.globalWorkSpace,workspace);
 
-        workspace.updateToolbox(globalToolbox);
     },
     changeToIdMode : function (id) {
         alertModeChange('ID : ' + id);
+
+        workspace.updateToolbox(idToolbox);
 
         //alert('id : ' + id );
         if (! this.idWorkspace[id])
@@ -32,8 +35,6 @@ var WorkspaceManager = {
 
         workspace.clear();
         Blockly.Xml.domToWorkspace(this.idWorkspace[id],workspace);
-
-        workspace.updateToolbox(idToolbox);
 
     },
     createNewWorkspace : function () {

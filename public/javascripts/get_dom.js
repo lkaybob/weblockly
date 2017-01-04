@@ -19,7 +19,7 @@ $(document).ready(function() {
 
         match = /<[^/<]*>/.exec(currentLine);
         if (!match) {
-            console.log(currentCursorLine + 'fail');
+            //console.log(currentCursorLine + 'fail');
             $(document).trigger({
                 type : 'ModeChange'
             });
@@ -81,7 +81,7 @@ $(document).ready(function() {
             classList = null;
         }
         selectTag.classes = classList;
-        console.log(selectTag);
+        //console.log(selectTag);
 
         //alert(selectTag);
         if (selectTag){

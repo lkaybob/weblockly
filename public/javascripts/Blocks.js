@@ -7,13 +7,70 @@
 Blockly.Blocks['on_click'] = {
     init: function () {
         this.jsonInit({
-            "type": "onclick",
-            "message0": "When Clicked %1",
+            "type": "on_click",
+            "message0": "When clicked %1",
             "args0": [
             {
                 "type": "input_statement",
                 "name": "code"
             }
+            ],
+            "colour": 120,
+            "tooltip": "",
+            "helpUrl": "http://www.example.com/"
+        })
+
+    }
+}
+
+Blockly.Blocks['on_mouse_over'] = {
+    init: function () {
+        this.jsonInit({
+            "type": "on_mouse_over",
+            "message0": "When mouse over %1",
+            "args0": [
+                {
+                    "type": "input_statement",
+                    "name": "code"
+                }
+            ],
+            "colour": 120,
+            "tooltip": "",
+            "helpUrl": "http://www.example.com/"
+        })
+
+    }
+}
+
+Blockly.Blocks['on_mouse_out'] = {
+    init: function () {
+        this.jsonInit({
+            "type": "on_mouse_out",
+            "message0": "When mouse leave %1",
+            "args0": [
+                {
+                    "type": "input_statement",
+                    "name": "code"
+                }
+            ],
+            "colour": 120,
+            "tooltip": "",
+            "helpUrl": "http://www.example.com/"
+        })
+
+    }
+}
+
+Blockly.Blocks['on_load'] = {
+    init: function () {
+        this.jsonInit({
+            "type": "on_load",
+            "message0": "When Page is loaded  %1",
+            "args0": [
+                {
+                    "type": "input_statement",
+                    "name": "code"
+                }
             ],
             "colour": 120,
             "tooltip": "",

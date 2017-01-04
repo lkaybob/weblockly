@@ -4,6 +4,9 @@
     <sep></sep>
     <category name="Event" colour="230">
         <block type="on_click" />
+        <block type="on_mouse_over" />
+        <block type="on_mouse_out" />
+
     </category>
     <category name="Input" colour="120">
         <block type="input_value">
