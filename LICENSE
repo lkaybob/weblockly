@@ -673,10 +673,10 @@ the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
 <http://www.gnu.org/philosophy/why-not-lgpl.html>.
 
-The Weblockly license applies to all parts of Node.js that are not externally
+Weblockly license applies to all parts of Weblockly that are not externally
 maintained libraries.
 
-The externally maintained libraries used by Node.js are:
+The externally maintained libraries used by Weblockly are:
 
 - Blockly, located at /node_modules/blockly is licensed as follows:
 ```

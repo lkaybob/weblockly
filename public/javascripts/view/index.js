@@ -1,10 +1,13 @@
-/////////////////////////
-// resizeable
-/////////////////////////
-var blocklyDiv = document.getElementById('blocklyDiv');
+/**
+* /public/javascrpts/view/index.js
+* @fileoverview Scripts for frontend code generation demo @ http://localhost:3000
+*/
+var blocklyDiv = document.getElementById('blocklyDiv');                 // Defines #blocklyDiv DOM for blockly workspace injection
+var globalToolbox, idToolbox;                                           // XML for blockly workspace toolbox for Global Mode & ID DOM Mode
 
-var globalToolbox, idToolbox;
-
+/**
+ * Synchronously calls XML File for toolbox definition
+ * Each toolbox definition would be in seperate variable*/
 $.ajax({
     async : false,
     url : 'xml/toolbox/globalToolbox.xml',
@@ -23,17 +26,21 @@ $.ajax({
     }
 });
 
-var workspace = Blockly.inject(blocklyDiv,
-    {toolbox: globalToolbox});
-
-var editorRow = (document.getElementsByClassName("editor-row"))[0];
-var scriptEditor = document.getElementsByClassName("script-editor");
-var workspaceTab = document.getElementById('tabGroup');
-var modeChangeReminder = document.getElementById('modeChangeReminder');
-var htmlEditor;
-var cssEditor;
+var workspace = Blockly.inject(blocklyDiv,                                  // Blockly workspace object for Weblockly
+    {toolbox: globalToolbox});                                              // First defines with global mode toolbox
+var editorRow = (document.getElementsByClassName("editor-row"))[0];         // .editor-row DOM for resizing
+var scriptEditor = document.getElementsByClassName("script-editor");        // .script-editor DOM for resizing
+var modeChangeReminder = document.getElementById('modeChangeReminder');     // DOM for indicating switched mode
+var htmlEditor;                                                             // CodeMirror instance for HTML Editing
+var cssEditor;                                                              // CodeMirror instance for CSS Editing
 
 function onResizeListener() {
+    /**
+     * Calculates .editor-row DOM's height and width and sets its child component
+     * (since it automatically resized on browser resize event)
+     * Resizes CodeMirror instances, Blockly workspace, iframe (for rendering) component
+     * to its parent, .editor-row DOM
+     */
     var newHeight = editorRow.clientHeight - 10;
     var newWidth = editorRow.clientWidth - 20;
 
@@ -52,6 +59,11 @@ function onResizeListener() {
 }
 
 function codeMirrorInit() {
+    /**
+     * Creates CodeMirror instances for HTML & CSS Editor.
+     * Depends on /codemirror scripts.
+     *
+     */
     htmlEditor = CodeMirror.fromTextArea(scriptEditor[0], {
         mode: 'text/html',
         lineNumbers: true,
@@ -65,6 +77,7 @@ function codeMirrorInit() {
         extraKeys: {"Shift-Ctrl" : 'autocomplete'},
         autoCloseBrackets: false
     });
+
     htmlEditor.on('keyup', function (){
         render(false);
     });
@@ -73,9 +86,13 @@ function codeMirrorInit() {
     });
 }
 
-var isReminderShow = false;
+var isReminderShow = false;                         // Boolean varialbe that indicates where reminder is on
 var reminderTimer;
 function alertModeChange(a) {
+    /**
+     * Shows in whick mode Blockly workspace is in (Global, ID DOM, Class DOM).
+     * Handles exception when reminder is already shown
+     * (When shown, it only changes text of reminder and resets timer) */
     var reminder = $('#modeChangeReminder');
     if (isReminderShow){
         reminder.text(a);
@@ -97,8 +114,17 @@ function alertModeChange(a) {
     }
 }
 
+/**
+ * Adds event listener for refreshed DOM size when browser resized*/
 window.addEventListener('resize', onResizeListener, false);
+
 window.onload = function() {
+    /**
+     * Intial settings when page is loaded.
+     * First resizes with onResizeListener.
+     * Then sets border for each editor component.
+     * Also initiates Workspace Manager for multiple editing mode.
+     * */
     var borderStyle = '1px solid black';
     codeMirrorInit();
     setTimeout(onResizeListener, 1);
@@ -108,24 +134,12 @@ window.onload = function() {
     scriptEditor[1].style.border = borderStyle;
     scriptEditor[3].style.border = borderStyle;
 
-
     WorkspaceManager.init();
 };
 
+/**
+ * Adds event listener to .play-button DOM (Play Button)
+ * for rendering current state (HTML, CSS, JS generated from Blockly workspace) */
 $('.play-button').click(function () {
-//    alert(Blockly.JavaScript.workspaceToCode(workspace));
     render(true);// render with js
 });
-/*
-$('#btnGlobal').click(function (){
-    WorkspaceManager.changeToGlobalMode();
-});
-
-$('#btnId').click(function (){
-    WorkspaceManager.changeToIdMode();
-});
-
-
-
-
-*/
