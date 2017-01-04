@@ -35,7 +35,8 @@ var generateCode = function () {
         alert('Global Mode does not support event block yet.');
         return null;
     }
-    
+
+    console.log(code);
     return code;
 }
 
@@ -91,6 +92,20 @@ Blockly.JavaScript['set_time_out'] = function(block) {
 
     return code;
 };
+
+Blockly.JavaScript['set_interval'] = function(block) {
+    var time = block.getFieldValue('time');
+    var statements_code = Blockly.JavaScript.statementToCode(block, 'statement');
+    // TODO: Assemble JavaScript into code variable.
+    var code = 'setInterval(function () {\n'+
+        statements_code +
+        '}, '+ time +');\n';
+
+    return code;
+};
+////////
+// output
+////////
 Blockly.JavaScript['alert'] = function(block) {
     var text_alert_text = block.getFieldValue('alert_text');
     // TODO: Assemble JavaScript into code variable.

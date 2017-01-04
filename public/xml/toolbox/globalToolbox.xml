@@ -15,6 +15,7 @@
     </category>
     <category name="Time" colour="260">
         <block type="set_time_out" />
+        <block type="set_interval" />
     </category>
     <category name="Math" colour="290">
         <block type="math_number" />
