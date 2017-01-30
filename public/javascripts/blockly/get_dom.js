@@ -103,7 +103,7 @@ $(document).ready(function() {
                     tagId : selectTag.id
                 });
             else
-                alert('There is no id in tag you selected.');
+                // alert('There is no id in tag you selected.');
         }
         else {
             //trigger event that change document to global mode

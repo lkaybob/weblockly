@@ -31,3 +31,6 @@ npm-debug.log
 
 # IntelliJ WebStorm
 .idea
+
+# DB
+db/data/*
