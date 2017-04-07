@@ -1,5 +1,7 @@
 # Weblockly
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/lawrence-kaybob/weblockly.svg)](https://greenkeeper.io/)
+
 ### What is "Weblockly"?
 "Weblockly" is a [Blockly](https://developers.google.com/blockly) Modification project, which helps noobs to make component of web site, using HTML, CSS and blocks, so that they can run and deploy their component with Weblockly.
 We're planning to implement deployment feature, enalbing their project to be deployed and embeded in own web site.
